@@ -4,7 +4,7 @@
        });
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    selectYears: 250, // Creates a dropdown of 15 years to control year,
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
@@ -15,55 +15,66 @@
   
   <div class="col s12">
 <center>
-  <h3>Add New Contact</h3>
+  <h3>{{friendTitle}}</h3>
 </center>
   </div>
-
 </div>
+      <div class="row">
+        <div class="input-field col s3">
+        <i class="material-icons prefix">assignment_ind</i>
+          <select name="friend_relationship" ng-model="contact.friendMem">
+            <option value="" disabled selected>Choose your friendship</option>
+            <option value="bestFriend">Best Friend</option>
+            <option value="closeFriend">Close Friend</option>
+            <option value="friend">Friend</option>
+            <option value="aquaintance">Aquaintance</option>
+          </select>
+        </div>
+      </div>
 <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s4">
           <i class="material-icons prefix">account_circle</i>
-          <input id="first_name" type="text" class="validate">
+          <input id="first_name" type="text" class="validate" ng-model="contact.first_name">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s4">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" ng-model="contact.last_name">
           <label for="last_name">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s2">
           <i class="material-icons prefix">phone</i>
-          <input id="phone" type="phone" class="validate" maxlength="10" placeholder="1234567890">
+          <input id="phone" type="phone" class="validate" maxlength="10" placeholder="1234567890" ng-model="contact.phone">
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" ng-model="contact.email">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
           <i class="material-icons prefix">home</i>
-          <input id="street_address" type="text">
+          <input id="street_address" type="text" ng-model="contact.street_1">
           <label for="street_address">Street Address</label>
         </div>
         </div>
         <div class="row">
         <div class="input-field col s8">
-          <input id="street_address2" type="text">
+          <input id="street_address2" type="text" ng-model="contact.street_2">
           <label for="street_address2">Street Address 2</label>
         </div>
         </div>
         <div class="row">
         <div class="input-field col s3">
-          <input id="city" type="text">
+          <input id="city" type="text" ng-model="contact.city">
           <label for="city">City</label>
         </div>
         <div class="input-field col s3">
-            <select name="state">
+            <select name="state"  ng-model="contact.state">
               <option value="" selected disabled>State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -119,81 +130,23 @@
             </select>
           </div>
           <div class="input-field col s2">
-          <input id="zip" type="number" maxlength="5">
+          <input id="zip" type="number" maxlength="5" ng-model="contact.zip">
           <label for="zip">Zip Code</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3">
         <i class="material-icons prefix">assignment_ind</i>
-          <select name="family_relationship">
-            <option value="" disabled selected>Choose your relationship</option>
-            <option value="mother">Mother</option>
-            <option value="father">Father</option>
-            <option value="brother">Brother</option>
-            <option value="sister">Sister</option>
-            <option value="wife">Wife</option>
-            <option value="wife">Husband</option>
-            <option value="wife">Girlfriend</option>
-            <option value="wife">Boyfriend</option>
-            <option value="grandmother">Grandmother</option>
-            <option value="grandfater">Grandfather</option>
-            <option value="aunt">Aunt</option>
-            <option value="uncle">Uncle</option>
-            <option value="cousin">Cousin</option>
-            <option value="stepmother">Step-Mother</option>
-            <option value="stepfater">Step-Father</option>
-            <option value="motherinlaw">Mother-in-law</option>
-            <option value="fatherinlaw">Father-in-law</option>
-            <option value="stepbrother">Step-Brother</option>
-            <option value="stepsister">Step-Sister</option>
-            <option value="godson">Godson</option>
-            <option value="goddaughter">Goddaughter</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s3">
-        <i class="material-icons prefix">assignment_ind</i>
-          <select name="friend_relationship">
-            <option value="" disabled selected>Choose your friendship</option>
-            <option value="bestFriend">Best Friend</option>
-            <option value="CloseFriend">Close Friend</option>
-            <option value="Friend">Friend</option>
-            <option value="Aquaintance">Aquaintance</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s3">
-        <i class="material-icons prefix">assignment_ind</i>
-          <select name="professional_relationship">
-            <option value="" disabled selected>Professional Relationship</option>
-            <option value="mother">Work With</option>
-            <option value="father">Work For</option>
-            <option value="brother">Customer</option>
-            <option value="sister">Manager</option>
-            <option value="sister">Supervisor</option>
-            <option value="sister">Collegue</option>
-            <option value="sister">Client</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s3">
-        <i class="material-icons prefix">assignment_ind</i>
-          <select name="gender">
+          <select name="gender" ng-model="contact.gender">
             <option value="" disabled selected>Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
         </div>
-      </div>
-      <div class="row">
         <div class="input-field col s3">
           <i class="material-icons prefix">add_alert</i>
-          <select name="religious_affiliation">
+          <select name="religious_affiliation" ng-model="contact.religion">
           <option value="" disabled selected>Religious Holiday Reminder</option>
           <option value="none">None</option>
           <option value="christian">Christian</option>
@@ -203,23 +156,18 @@
           </select>
         </div>
       </div>
-
       <div class="row">
         <div class="input-field col s3">
           <label for="birthdate" class="">Birthdate</label>
-          <input type="text" class="datepicker">
+          <input type="text" class="datepicker" ng-model="contact.birthdate">
         </div>
-      </div>
-      <div class="row">
         <div class="input-field col s3">
           <label for="anniversary" class="">Anniversary</label>
-          <input type="text" class="datepicker">
+          <input type="text" class="datepicker" ng-model="contact.anniversary">
         </div>
-      </div>
-      <div class="row">
         <div class="input-field col s3">
           <label for="special-date" class="">Special Date</label>
-          <input type="text" class="datepicker">
+          <input type="text" class="datepicker" ng-model="contact.specialDate">
         </div>
       </div>
       <div class="row">
@@ -228,7 +176,7 @@
           <i class="material-icons prefix">phone</i> Call Reminder
             <label>
               Off
-              <input type="checkbox">
+              <input type="checkbox" ng-model="contact.callRem" ng-init="contact.callRem=false">
               <span class="lever"></span>
               On
             </label>
@@ -239,7 +187,7 @@
           <i class="material-icons prefix">shopping_cart</i> Send Gift Reminder
             <label>
               Off
-              <input type="checkbox">
+              <input type="checkbox" ng-model="contact.giftRem" ng-init="contact.giftRem=false">
               <span class="lever"></span>
               On
             </label>
@@ -250,7 +198,7 @@
           <i class="material-icons prefix">import_contacts</i> Send Card Reminder
             <label>
               Off
-              <input type="checkbox">
+              <input type="checkbox" ng-model="contact.cardRem" ng-init="contact.cardRem=false">
               <span class="lever"></span>
               On
             </label>
@@ -258,7 +206,7 @@
         </div>
       </div>
       <div class="row">
-        <submit class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <submit class="btn waves-effect waves-light" type="submit" name="action" ng-click="submitContact()">{{submitConButton}}
         <i class="material-icons right">send</i>
         </submit>
       </div>

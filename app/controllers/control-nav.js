@@ -7,6 +7,7 @@ app.controller('navCtrl', function($scope, $window, userFactory){
 	$scope.logout = () => {
 		userFactory.logOut();
 	};
+	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			$scope.isLoggedIn = true;

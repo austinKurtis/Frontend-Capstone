@@ -1,0 +1,224 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('select').material_select();
+       });
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 250, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
+<div class="row">
+  
+  <div class="col s12">
+<center>
+  <h3>{{familyTitle}}</h3>
+</center>
+  </div>
+
+</div>
+<div class="row">
+      <div class="input-field col s3">
+        <i class="material-icons prefix">assignment_ind</i>
+        <select name="family_relationship" ng-model="contact.familyMem">
+          <option value="" disabled selected>Choose your relationship</option>
+          <option value="mother">Mother</option>
+          <option value="father">Father</option>
+          <option value="brother">Brother</option>
+          <option value="sister">Sister</option>
+          <option value="wife">Wife</option>
+          <option value="husband">Husband</option>
+          <option value="girlfriend">Girlfriend</option>
+          <option value="boyfriend">Boyfriend</option>
+          <option value="grandmother">Grandmother</option>
+          <option value="grandfather">Grandfather</option>
+          <option value="aunt">Aunt</option>
+          <option value="uncle">Uncle</option>
+          <option value="cousin">Cousin</option>
+          <option value="stepmother">Step-Mother</option>
+          <option value="stepfater">Step-Father</option>
+          <option value="motherinlaw">Mother-in-law</option>
+          <option value="fatherinlaw">Father-in-law</option>
+          <option value="stepbrother">Step-Brother</option>
+          <option value="stepsister">Step-Sister</option>
+          <option value="godson">Godson</option>
+          <option value="goddaughter">Goddaughter</option>
+        </select>
+      </div>
+</div>
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="first_name" type="text" class="validate" ng-model="contact.first_name">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="last_name" type="text" class="validate" ng-model="contact.last_name">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s2">
+          <i class="material-icons prefix">phone</i>
+          <input id="phone" type="phone" class="validate" maxlength="10" placeholder="1234567890" ng-model="contact.phone">
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <input id="email" type="email" class="validate" ng-model="contact.email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">home</i>
+          <input id="street_address" type="text" ng-model="contact.street_1">
+          <label for="street_address">Street Address</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s8">
+          <input id="street_address2" type="text" ng-model="contact.street_2">
+          <label for="street_address2">Street Address 2</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s3">
+          <input id="city" type="text" ng-model="contact.city">
+          <label for="city">City</label>
+        </div>
+        <div class="input-field col s3">
+            <select name="state"  ng-model="contact.state">
+              <option value="" selected disabled>State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+          <div class="input-field col s2">
+          <input id="zip" type="number" maxlength="5" ng-model="contact.zip">
+          <label for="zip">Zip Code</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s3">
+          <i class="material-icons prefix">add_alert</i>
+          <select name="religious_affiliation" ng-model="contact.religion">
+          <option value="" disabled selected>Religious Holiday Reminder</option>
+          <option value="none">None</option>
+          <option value="christian">Christian</option>
+          <option value="hindu">Hindu</option>
+          <option value="jewish">Jewish</option>
+          <option value="muslim">Muslim</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <label for="birthdate" class="">Birthdate</label>
+          <input type="text" class="datepicker" ng-model="contact.birthdate">
+        </div>
+        <div class="input-field col s3">
+          <label for="anniversary" class="">Anniversary</label>
+          <input type="text" class="datepicker" ng-model="contact.anniversary">
+        </div>
+        <div class="input-field col s3">
+          <label for="special-date" class="">Special Date</label>
+          <input type="text" class="datepicker" ng-model="contact.specialDate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s4">
+          <div class="switch">
+          <i class="material-icons prefix">phone</i> Call Reminder
+            <label>
+              Off
+              <input type="checkbox" ng-model="contact.callRem" ng-init="contact.callRem=false">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="switch">
+          <i class="material-icons prefix">shopping_cart</i> Send Gift Reminder
+            <label>
+              Off
+              <input type="checkbox" ng-model="contact.giftRem" ng-init="contact.giftRem=false">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
+        <div class="col s4">
+          <div class="switch">
+          <i class="material-icons prefix">import_contacts</i> Send Card Reminder
+            <label>
+              Off
+              <input type="checkbox" ng-model="contact.cardRem" ng-init="contact.cardRem=false">
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <submit class="btn waves-effect waves-light" type="submit" name="action" ng-click="submitContact()">{{submitConButton}}
+        <i class="material-icons right">send</i>
+        </submit>
+      </div>
+    </form>
+  </div>

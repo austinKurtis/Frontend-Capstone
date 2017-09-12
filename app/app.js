@@ -21,13 +21,29 @@ app.config(($routeProvider) =>{
 	$routeProvider
 
 	.when('/', {
-			// templateUrl: 'partials/user.html',
-			templateUrl: 'partials/newContact.html',
+			templateUrl: 'partials/user.html',
 			controller: 'userCtrl'
 		})
-	.when('/newContact', {
-			templateUrl: 'partials/newContact.html',
-			controller: 'contactCtrl'
+	.when('/newFamilyContact', {
+			templateUrl: 'partials/newFamContact.html',
+			controller: 'contactFamCtrl',
+			resolve: {isAuth}
+			
+		})
+	.when('/newFriendContact', {
+			templateUrl: 'partials/newFrndContact.html',
+			controller: 'contactFrndCtrl',
+			resolve: {isAuth}
+		})
+	.when('/newProfessionalContact', {
+			templateUrl: 'partials/newProContact.html',
+			controller: 'contactProfCtrl',
+			resolve: {isAuth}
+		})
+	.when('/home', {
+			templateUrl: 'partials/home.html',
+			controller: 'userCtrl',
+			resolve: {isAuth}
 		})
 	.otherwise('/');
 });
