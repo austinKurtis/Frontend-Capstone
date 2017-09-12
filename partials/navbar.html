@@ -1,0 +1,10 @@
+  <nav ng-controller="navCtrl">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Project-X</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a ng-show="isLoggedIn" href="sass.html"><i class="material-icons left">search</i>Link with Left Icon</a></li>
+
+        <li><a ng-show="isLoggedIn" ng-click="logout()" >Logout</a></li>
+      </ul>
+    </div>
+  </nav>
