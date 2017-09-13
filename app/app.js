@@ -45,6 +45,26 @@ app.config(($routeProvider) =>{
 			controller: 'userCtrl',
 			resolve: {isAuth}
 		})
+	.when('/AllContacts', {
+			templateUrl: 'partials/showAllContacts.html',
+			controller: 'allContactsCtrl',
+			resolve: {isAuth}
+		})
+	.when('/:itemId/editFamilyContact', {
+			templateUrl: 'partials/editFamContact.html',
+			controller: 'editFamContactCtrl',
+			resolve: {isAuth}
+		})
+	.when('/:itemId/editFriendContact', {
+			templateUrl: 'partials/editFrndContact.html',
+			controller: 'editFamContactCtrl',
+			resolve: {isAuth}
+		})
+	.when('/:itemId/editProfessionalContact', {
+			templateUrl: 'partials/editProContact.html',
+			controller: 'editProContactCtrl',
+			resolve: {isAuth}
+		})
 	.otherwise('/');
 });
 
