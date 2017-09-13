@@ -1,0 +1,69 @@
+<div class="row">
+	<div class="col s12">
+	<center>
+		<h1>All Contacts</h1>
+	</center>
+	</div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <h5>Call Reminder</h5>
+    <div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true}">
+      <div class="col s2">
+        <a class="waves-effect waves-light btn"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+      </div>
+    </div>  
+</div>
+<div class="row">
+	<div class="col s12 m3">
+  <center>
+		<h3>Family</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFamilyContact"><i class="material-icons">add</i></a>
+  </center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'family'}">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <p>{{people.familyMem}}</p>
+            </div>
+            <div class="card-action">
+              <a ng-click="deleteContact(people.id)">Delete Contact</a>
+              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+            </div>
+          </div>
+        </div>		
+	</div>
+	<div class="col s12 m3">
+		<center>
+		<h3>Friends</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFriendContact"><i class="material-icons">add</i></a>
+		</center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'friend'}">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <p>{{people.birthdate}}</p>
+            </div>
+            <div class="card-action">
+              <a ng-click="deleteContact(people.id)">Delete Contact</a>
+              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+            </div>
+          </div>
+        </div>		
+	</div>
+	<div class="col s12 m3">
+		<center>
+		<h3>Professional</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newProfessionalContact"><i class="material-icons">add</i></a>
+		</center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'professional'}">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <p>{{people.birthdate}}</p>
+            </div>
+            <div class="card-action">
+              <a ng-click="deleteContact(people.id)">Delete Contact</a>
+              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+            </div>
+          </div>
+        </div>		
+	</div>
+</div>

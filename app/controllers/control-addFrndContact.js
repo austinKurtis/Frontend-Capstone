@@ -35,7 +35,7 @@ app.controller('contactFrndCtrl', function($scope, $window, userFactory, contact
 		console.log("submitCLicked");
 		contactFactory.addContact($scope.contact)
 		.then((data) =>{
-			$location.url("/home");
+			$location.url("/AllContacts");
 		});
 	};
 });
