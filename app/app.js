@@ -41,8 +41,8 @@ app.config(($routeProvider) =>{
 			resolve: {isAuth}
 		})
 	.when('/home', {
-			templateUrl: 'partials/home.html',
-			controller: 'userCtrl',
+			templateUrl: 'partials/showAllContacts.html',
+			controller: 'allContactsCtrl',
 			resolve: {isAuth}
 		})
 	.when('/AllContacts', {
