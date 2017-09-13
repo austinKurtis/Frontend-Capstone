@@ -21,9 +21,10 @@
 
 </div>
 <div class="row">
-      <div class="input-field col s3">
+      <div class="col s3">
         <i class="material-icons prefix">assignment_ind</i>
-        <select name="family_relationship" ng-model="contact.familyMem">
+        <label for="family_relationship">Family Relationship</label>
+        <select name="family_relationship" class="browser-default" ng-model="contact.familyMem">
           <option value="" disabled selected>Choose your relationship</option>
           <option value="mother">Mother</option>
           <option value="father">Father</option>
@@ -91,8 +92,9 @@
         <label for="city">City</label>
           <input id="city" type="text" ng-model="contact.city">
         </div>
-        <div class="input-field col s3">
-            <select name="state"  ng-model="contact.state">
+        <div class="col s4">
+            <label for="state">State</label>
+            <select name="state" class="browser-default" ng-model="contact.state">
               <option value="" selected disabled>State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -154,9 +156,10 @@
       </div>
       
       <div class="row">
-        <div class="input-field col s3">
+        <div class="col s3">
           <i class="material-icons prefix">add_alert</i>
-          <select name="religious_affiliation" ng-model="contact.religion">
+          <label for="religion">Religious Holiday Reminder</label>
+          <select name="religious_affiliation" class="browser-default" ng-model="contact.religion">
           <option value="" disabled selected>Religious Holiday Reminder</option>
           <option value="none">None</option>
           <option value="christian">Christian</option>
