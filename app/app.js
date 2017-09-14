@@ -1,7 +1,7 @@
 "use strict";
 console.log("app.js");
 
-const app = angular.module("KitApp", ["ngRoute"]);
+const app = angular.module("KitApp", ['ui.materialize', "ngRoute"]);
 
 let isAuth = (userFactory) => new Promise ((resolve, reject) => {
 	console.log("This is the userFactory", userFactory);
@@ -57,7 +57,7 @@ app.config(($routeProvider) =>{
 		})
 	.when('/:itemId/editFriendContact', {
 			templateUrl: 'partials/editFrndContact.html',
-			controller: 'editFamContactCtrl',
+			controller: 'editFrndContactCtrl',
 			resolve: {isAuth}
 		})
 	.when('/:itemId/editProfessionalContact', {
@@ -65,6 +65,26 @@ app.config(($routeProvider) =>{
 			controller: 'editProContactCtrl',
 			resolve: {isAuth}
 		})
+	.when('/:itemId/FamilyContactDetails', {
+			templateUrl: 'partials/showFamDetails.html',
+			controller: 'contactDetailCtrl',
+			resolve: {isAuth}
+	})
+	.when('/:itemId/FriendContactDetails', {
+			templateUrl: 'partials/showFrndDetails.html',
+			controller: 'contactDetailCtrl',
+			resolve: {isAuth}
+	})
+	.when('/:itemId/ProfessionalContactDetails', {
+			templateUrl: 'partials/showProDetails.html',
+			controller: 'contactDetailCtrl',
+			resolve: {isAuth}
+	})
+	.when('/TestDateCompare', {
+			templateUrl: 'partials/testDateCompare.html',
+			controller: 'testDateCompare',
+			resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('allContactsCtrl', function($scope, contactFactory, userFactory){
+app.controller('allContactsCtrl', function($scope, $window, $location, contactFactory, userFactory){
 	$scope.contacts = [];
 	let user = userFactory.getCurrentUser();
 	console.log("user list", user);
@@ -19,5 +19,6 @@ app.controller('allContactsCtrl', function($scope, contactFactory, userFactory){
 			showAllContacts();
 		});
 	};
+
 	showAllContacts();
 });
