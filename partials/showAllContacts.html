@@ -2,27 +2,34 @@
 	<div class="col s12">
 	<center>
 		<h1>All Contacts</h1>
+    <a href="TestDateCompare" class="btn">Test Compare Site</a>
 	</center>
 	</div>
 </div>
 <div class="row">
   <div class="col s12">
+    
     <h5>Call Reminder</h5>
     <div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true}">
-      <div class="col s2">
-        <a class="waves-effect waves-light btn"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+      
+      <div class="col">
+        <center>
+        <a class="waves-effect waves-light btn" href="tel:{{people.phone}}"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+        </center>
       </div>
+
     </div>  
+    
 </div>
+
 <div class="row">
 	<div class="col s12 m3">
-  <center>
 		<h3>Family</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFamilyContact"><i class="material-icons">add</i></a>
   </center>
 		<div ng-repeat="people in contacts | filter: { contactType: 'family'}">
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/FamilyContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.familyMem}}</p>
             </div>
             <div class="card-action">
@@ -39,12 +46,12 @@
 		<div ng-repeat="people in contacts | filter: { contactType: 'friend'}">
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/FriendContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.birthdate}}</p>
             </div>
             <div class="card-action">
               <a ng-click="deleteContact(people.id)">Delete Contact</a>
-              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+              <a ng-href="#!/{{people.id}}/editFriendContact">Edit Contact</a>
             </div>
           </div>
         </div>		
@@ -56,14 +63,36 @@
 		<div ng-repeat="people in contacts | filter: { contactType: 'professional'}">
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">{{people.first_name}} {{people.last_name}}</span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/ProfessionalContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.birthdate}}</p>
             </div>
             <div class="card-action">
               <a ng-click="deleteContact(people.id)">Delete Contact</a>
-              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+              <a ng-href="#!/{{people.id}}/editProfessionalContact">Edit Contact</a>
             </div>
           </div>
         </div>		
 	</div>
 </div>
+<!-- <script type="text/javascript">
+  $(".button-collapse").sideNav();
+</script>
+
+<ul id="slide-out" class="side-nav" >
+    <li><div class="user-view">
+      <div class="row">
+        <h4>First Name</h4>
+        <h4>Last Name</h4>
+      </div>
+      <div>
+        <h6>Relationship</h6>
+        <p>Birthday</p>
+        <p>Anniversary</p>
+        <p>Special Date</p>
+      </div>
+      <div>
+        <a>Delete Contact</a>
+        <a>Edit Contact</a>
+      </div>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->

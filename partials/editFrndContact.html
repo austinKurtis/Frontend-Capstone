@@ -20,15 +20,15 @@
   </div>
 </div>
       <div class="row">
-        <div class="input-field col s3">
+        <div class="col s3">
         <i class="material-icons prefix">assignment_ind</i>
-          <select name="friend_relationship" ng-model="contact.friendMem">
-            <option value="" disabled selected>Choose your friendship</option>
-            <option value="bestFriend">Best Friend</option>
-            <option value="closeFriend">Close Friend</option>
-            <option value="friend">Friend</option>
-            <option value="aquaintance">Aquaintance</option>
-          </select>
+            <select name="friend_relationship" class="browser-default" ng-model="contact.friendMem">
+              <option value="" disabled selected>Choose your friendship</option>
+              <option value="BestFriend">Best Friend</option>
+              <option value="Close Friend">Close Friend</option>
+              <option value="Friend">Friend</option>
+              <option value="Aquaintance">Aquaintance</option>
+            </select>
         </div>
       </div>
 <div class="row">
@@ -73,8 +73,8 @@
           <input id="city" type="text" ng-model="contact.city">
           <label for="city">City</label>
         </div>
-        <div class="input-field col s3">
-            <select name="state"  ng-model="contact.state">
+        <div class="col s3">
+            <select name="state" class="browser-default"  ng-model="contact.state">
               <option value="" selected disabled>State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -135,37 +135,37 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s3">
+        <div class="col s3">
         <i class="material-icons prefix">assignment_ind</i>
-          <select name="gender" ng-model="contact.gender">
+          <select name="gender" class="browser-default" ng-model="contact.gender">
             <option value="" disabled selected>Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
-        <div class="input-field col s3">
+        <div class="col s5">
           <i class="material-icons prefix">add_alert</i>
-          <select name="religious_affiliation" ng-model="contact.religion">
+          <select name="religious_affiliation" class="browser-default" ng-model="contact.religion">
           <option value="" disabled selected>Religious Holiday Reminder</option>
-          <option value="none">None</option>
-          <option value="christian">Christian</option>
-          <option value="hindu">Hindu</option>
-          <option value="jewish">Jewish</option>
-          <option value="muslim">Muslim</option>
+          <option value="None">None</option>
+          <option value="Christian">Christian</option>
+          <option value="Hindu">Hindu</option>
+          <option value="Jewish">Jewish</option>
+          <option value="Muslim">Muslim</option>
           </select>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s3">
+        <div class="col s3">
           <label for="birthdate" class="">Birthdate</label>
           <input type="text" class="datepicker" ng-model="contact.birthdate">
         </div>
-        <div class="input-field col s3">
+        <div class="col s3">
           <label for="anniversary" class="">Anniversary</label>
           <input type="text" class="datepicker" ng-model="contact.anniversary">
         </div>
-        <div class="input-field col s3">
+        <div class="col s3">
           <label for="special-date" class="">Special Date</label>
           <input type="text" class="datepicker" ng-model="contact.specialDate">
         </div>
@@ -209,6 +209,7 @@
         <submit class="btn waves-effect waves-light" type="submit" name="action" ng-click="submitContact()">{{submitConButton}}
         <i class="material-icons right">send</i>
         </submit>
+        <a class="waves-effect waves-light btn red" ng-href="#!/home"><i class="material-icons">exit_to_app</i>Exit Without Saving</a>
       </div>
     </form>
   </div>

@@ -1,8 +1,8 @@
 "use strict";
 console.log("Edit Fam");
-app.controller("editFamContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
+app.controller("editFrndContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
 
-	$scope.familyTitle = "Edit Friend Contact";
+	$scope.friendTitle = "Edit Friend Contact";
 	$scope.submitConButton = "Submit Edit";
 
 	let user = userFactory.getCurrentUser();
@@ -17,7 +17,8 @@ app.controller("editFamContactCtrl", function($scope, contactFactory, $routePara
 		city: "",
 		state: "",
 		zip: "",
-		familyMem: "",
+		friendMem: "",
+		gender: "",
 		religion: "",
 		birthdate: "",
 		anniversary: "",
@@ -27,7 +28,7 @@ app.controller("editFamContactCtrl", function($scope, contactFactory, $routePara
 		cardRem: "",
 		uid: user,
 		contactID: "",
-		contactType: "family"
+		contactType: "friend"
 	};
 
    const showEditFrndContact = function(){
