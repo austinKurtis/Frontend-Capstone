@@ -6,12 +6,10 @@ app.factory("userFactory", function($q, $http){
 
 //This provides the project with the uid. 
     const isAuthenticated = function () {
-        console.log("userFactory: isAuthenticated");
         return new Promise ((resolve, reject) => {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user){
                     currentUser = user.uid;
-                    console.log("user", user.uid);
                     resolve(true);
                 }else {
                     resolve(false);
@@ -25,7 +23,6 @@ app.factory("userFactory", function($q, $http){
     };
 
     const logOut = function(){
-        console.log("logoutUser");
         return firebase.auth().signOut();
     };
 

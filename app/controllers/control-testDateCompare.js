@@ -1,19 +1,16 @@
 "use strict";
-console.log("testDateCompare");
 
-app.controller('testDateCompare', function($scope){
-	$(document).ready(function() {
-    $('select').material_select();
-       });
-    $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 250, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-    });
+app.controller("testDateCompare", function($scope, contactFactory, $location){
 
-    
+    // This is what I require
+    var start = '2017-09-21';
+    var fromDay = moment(start).fromNow();
+    console.log("Today", moment()); 
+    console.log(fromDay);
+
+    $scope.select = {
+            value: "Option1",
+            choices: ["Option1", "I'm an option", "This is materialize", "No, this is Patrick."]
+        };
 
 });
