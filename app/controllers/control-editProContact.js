@@ -1,5 +1,4 @@
 "use strict";
-console.log("Edit Fam");
 app.controller("editProContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
 
 	$scope.professionalTitle = "Edit Professional Contact";

@@ -1,5 +1,4 @@
 "use strict";
-console.log("Edit Fam");
 app.controller("editFrndContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
 
 	$scope.friendTitle = "Edit Friend Contact";

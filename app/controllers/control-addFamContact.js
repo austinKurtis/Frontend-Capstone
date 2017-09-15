@@ -7,6 +7,9 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 
 	let user = userFactory.getCurrentUser();
 
+	let NowPlus2Wks = moment().add(2, 'weeks').format();
+	console.log('NowPlus2Wks', NowPlus2Wks);
+
 	$scope.contact = {
 		first_name: "",
 		last_name: "",
@@ -23,6 +26,7 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 		anniversary: "",
 		specialDate: "",
 		callRem: "",
+		LastCallDate: NowPlus2Wks,
 		giftRem: "",
 		cardRem: "",
 		uid: user,

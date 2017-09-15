@@ -1,17 +1,13 @@
 "use strict";
-console.log("app.js");
+const app = angular.module("KitApp", ['ngRoute', 'ui.materialize']);
 
-const app = angular.module("KitApp", ['ui.materialize', "ngRoute"]);
 
 let isAuth = (userFactory) => new Promise ((resolve, reject) => {
-	console.log("This is the userFactory", userFactory);
 	userFactory.isAuthenticated()
 	.then((userExists) => {
 		if(userExists) {
-			console.log("Authentication Good");
 			resolve();
 		}else {
-			console.log("Authentication Bad");
 			reject();
 		}
 	});
