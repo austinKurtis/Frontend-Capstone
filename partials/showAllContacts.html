@@ -2,8 +2,6 @@
 	<div class="col s12">
 	<center>
 		<h1>All Contacts</h1>
-    <a href="#!/TestDateCompare" class="btn">Test Compare Site</a>
-
 	</center>
 	</div>
 </div>
@@ -15,7 +13,7 @@
       
       <div class="col">
         <center>
-        <a tooltipped class="waves-effect waves-light btn" data-position="bottom" data-delay="50" data-tooltip="{{people.phone}}" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+        <a tooltipped class="waves-effect waves-light btn callTrack" data-ng-init="getLastCall(people.LastCallDate)" data-position="bottom" data-delay="50" data-tooltip="{{people.phone}}" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
         </center>
       </div>
 
@@ -34,8 +32,15 @@
               <p>{{people.familyMem}}</p>
             </div>
             <div class="card-action">
-              <a ng-click="deleteContact(people.id)">Delete Contact</a>
-              <a ng-href="#!/{{people.id}}/editFamilyContact">Edit Contact</a>
+              <div class="row allBday">
+                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
+              </div>
+              <div class="row allAnniv">
+                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
+              </div>
+              <div class="row allSpec">
+                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
+              </div>
             </div>
           </div>
         </div>		
@@ -48,11 +53,18 @@
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title"><a ng-href="#!/{{people.id}}/FriendContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
-              <p>{{people.birthdate}}</p>
+              <p>{{people.friendMem}}</p>
             </div>
             <div class="card-action">
-              <a ng-click="deleteContact(people.id)">Delete Contact</a>
-              <a ng-href="#!/{{people.id}}/editFriendContact">Edit Contact</a>
+              <div class="row allBday">
+                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
+              </div>
+              <div class="row allAnniv">
+                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
+              </div>
+              <div class="row allSpec">
+                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
+              </div>
             </div>
           </div>
         </div>		
@@ -65,38 +77,20 @@
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title"><a ng-href="#!/{{people.id}}/ProfessionalContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
-              <p>{{people.birthdate}}</p>
+              <p>{{people.proMem}}</p>
             </div>
             <div class="card-action">
-              <a ng-click="deleteContact(people.id)">Delete Contact</a>
-              <a ng-href="#!/{{people.id}}/editProfessionalContact">Edit Contact</a>
+              <div class="row allBday">
+                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
+              </div>
+              <div class="row allAnniv">
+                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
+              </div>
+              <div class="row allSpec">
+                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
+              </div>
             </div>
           </div>
         </div>		
 	</div>
 </div>
-
-
-
-<!-- <script type="text/javascript">
-  $(".button-collapse").sideNav();
-</script>
-
-<ul id="slide-out" class="side-nav" >
-    <li><div class="user-view">
-      <div class="row">
-        <h4>First Name</h4>
-        <h4>Last Name</h4>
-      </div>
-      <div>
-        <h6>Relationship</h6>
-        <p>Birthday</p>
-        <p>Anniversary</p>
-        <p>Special Date</p>
-      </div>
-      <div>
-        <a>Delete Contact</a>
-        <a>Edit Contact</a>
-      </div>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->

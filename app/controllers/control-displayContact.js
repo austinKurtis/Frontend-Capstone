@@ -22,7 +22,12 @@ app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactor
 			let bDayDiff = moment(nextBday).diff(moment());
 			let bDaysAway = moment.duration(bDayDiff).as('days');
 			$scope.bDayRound = Math.floor(bDaysAway);
-
+			if ($scope.bDayRound >= 14) {
+			angular.element( document.querySelector('#bdayTest')).addClass('green');
+			} else if ($scope.bDayRound <= 13 && $scope.bDayRound >=7) {
+			angular.element( document.querySelector('#bdayTest')).addClass('yellow');
+			} else {angular.element( document.querySelector('#bdayTest')).addClass('red');}
+			
 			// Anniversary Converter
 			let contAnniv = data.anniversary;
 			let formAnnivdate = moment(contAnniv).format();
@@ -34,6 +39,11 @@ app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactor
 			let annDiff = moment(nextAnn).diff(moment());
 			let annDaysAway = moment.duration(annDiff).as('days');
 			$scope.annDayRound = Math.floor(annDaysAway);
+			if ($scope.annDayRound >= 14) {
+			angular.element( document.querySelector('#aniTest')).addClass('green');
+			} else if ($scope.annDayRound <= 13 && $scope.annDayRound >=7) {
+			angular.element( document.querySelector('#aniTest')).addClass('yellow');
+			} else {angular.element( document.querySelector('#aniTest')).addClass('red');}
 
 			// Special Date Converter
 			let contSpec = data.specialDate;
@@ -46,10 +56,17 @@ app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactor
 			let specDiff = moment(nextSpec).diff(moment());
 			let SpecDaysAway = moment.duration(specDiff).as('days');
 			$scope.specDayRound = Math.floor(SpecDaysAway);
+			if ($scope.specDayRound >= 14) {
+			angular.element( document.querySelector('#specTest')).addClass('green');
+			} else if ($scope.specDayRound <= 13 && $scope.specDayRound >=7) {
+			angular.element( document.querySelector('#specTest')).addClass('yellow');
+			} else {angular.element( document.querySelector('#specTest')).addClass('red');}
+			
 		});
 	};
-	
-	
+
+	 
+
 	$scope.deleteContact = function(id) {
 		contactFactory.deleteContact(id)
 		.then((irrelevant) => {
@@ -58,13 +75,6 @@ app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactor
 	};
 
 
-	// const timeout = function(){
-	// 	$(document).ready(function(){
- //    $('.tooltipped').tooltip({delay: 50});
- //  		});
-
-	// };
-	// $timeout(timeout, 100);
 	showContact();
 
 });
