@@ -13,7 +13,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 	};
 
 	$scope.getLastCall = function(call){
-		console.log("call", call);
 		let compareTime = moment(call).diff(moment());
 		let daysTime = moment.duration(compareTime).as('days');
 		$scope.dayRound = Math.floor(daysTime);
@@ -25,12 +24,9 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			angular.element( document.querySelectorAll('.callTrack')).addClass('yellow');
 		} else {
 			angular.element( document.querySelectorAll('.callTrack')).addClass('red');
-		}
-		console.log("dayRound", $scope.dayRound);
-	};
+		}	};
 
 	$scope.getBirthday = function(bday){
-		console.log("bday", bday);
 		let contBdate = bday;
 		let formBirthdate = moment(contBdate).format();
 		let birthage = moment().diff(formBirthdate);
@@ -41,19 +37,17 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let bDayDiff = moment(nextBday).diff(moment());
 		let bDaysAway = moment.duration(bDayDiff).as('days');
 		$scope.bDayRound = Math.floor(bDaysAway);
-		console.log("$scope.bDayRound", $scope.bDayRound);
-		// if (isNaN($scope.bDayRound)){
-		// 	angular.element( document.querySelectorAll('.allBday')).addClass('hide');
-		// 	} else if ($scope.bDayRound > 14) {
-		// 	angular.element( document.querySelectorAll('.allBday')).addClass('hide');
-			if ($scope.bDayRound <= 14 && $scope.bDayRound >=7) {
-			angular.element( document.querySelectorAll('.allBday')).addClass('Green').removeClass('hide');
-			} else {angular.element( document.querySelectorAll('.allBday')).addClass('red').removeClass('hide');
+		if (isNaN($scope.bDayRound)){
+			angular.element( document.querySelectorAll('.allBday')).addClass('hide');
+			} else if ($scope.bDayRound > 14) {
+			angular.element( document.querySelectorAll('.allBday')).addClass('hide');
+			} else if ($scope.bDayRound <= 14 && $scope.bDayRound >=7) {
+			angular.element( document.querySelectorAll('.allBday')).addClass('green').removeClass('hide');
+			} else {angular.element( document.querySelectorAll('.allBday')).addClass('red');
 		}
 	};
 
 	$scope.getAnniversary = function(anniv){
-		console.log("anniv", anniv);
 		let contAnniv = anniv;
 		let formAnnivdate = moment(contAnniv).format();
 		let origAnnDate = moment().diff(formAnnivdate);
@@ -64,19 +58,17 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let annDiff = moment(nextAnn).diff(moment());
 		let annDaysAway = moment.duration(annDiff).as('days');
 		$scope.annDayRound = Math.floor(annDaysAway);
-		console.log("$scope.annDayRound", $scope.annDayRound);
 		if (isNaN($scope.annDayRound)){
 			angular.element( document.querySelectorAll('.allAnniv')).addClass('hide');
 			} else if ($scope.annDayRound > 14) {
 			angular.element( document.querySelectorAll('.allAnniv')).addClass('hide');
 			} else if ($scope.annDayRound <= 14 && $scope.annDayRound >=7) {
-			angular.element( document.querySelectorAll('.allAnniv')).addClass('Green').removeClass('hide');
+			angular.element( document.querySelectorAll('.allAnniv')).addClass('green').removeClass('hide');
 			} else {angular.element( document.querySelectorAll('.allAnniv')).addClass('red');
 		}
 	};
 
 	$scope.getSpecial = function(spec){
-		console.log("spec", spec);
 		let contSpec = spec;
 		let formSpecdate = moment(contSpec).format();
 		let origSpecDate = moment().diff(formSpecdate);
@@ -87,13 +79,12 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let specDiff = moment(nextSpec).diff(moment());
 		let SpecDaysAway = moment.duration(specDiff).as('days');
 		$scope.specDayRound = Math.floor(SpecDaysAway);
-		console.log("$scope.specDayRound", $scope.specDayRound);
 		if (isNaN($scope.specDayRound)){
 			angular.element( document.querySelectorAll('.allSpec')).addClass('hide');
 			} else if ($scope.specDayRound > 14) {
 			angular.element( document.querySelectorAll('.allSpec')).addClass('hide');
 			} else if ($scope.specDayRound <= 14 && $scope.specDayRound >=7) {
-			angular.element( document.querySelectorAll('.allSpec')).addClass('Green').removeClass('hide');
+			angular.element( document.querySelectorAll('.allSpec')).removeClass('hide').addClass('green');
 			} else {angular.element( document.querySelectorAll('.allSpec')).addClass('red');
 		}
 	};
@@ -103,9 +94,7 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		contactFactory.getAllContacts(user)
 		.then((contacts) => {
 			$scope.contacts = contacts;
-			console.log("contacts", contacts);
 			var lastDate = contacts.LastCallDate;
-			console.log("lastDate", lastDate);
 		})
 		.then((data) => {
 			$scope.contact = data;
@@ -120,7 +109,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 // Call reminder click patches LastCallDate to Firebase
 	$scope.updateCall = function(id) {
 		contactFactory.editContact(id, contact);
-		console.log("inside update", id, contact);
 	};
 
 	showAllContacts();
