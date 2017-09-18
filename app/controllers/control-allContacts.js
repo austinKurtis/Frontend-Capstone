@@ -11,21 +11,40 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 	let contact = {
 		LastCallDate: NowPlus2Wks
 	};
-
+// determines how many days away from now to call contact
 	$scope.getLastCall = function(call){
 		let compareTime = moment(call).diff(moment());
 		let daysTime = moment.duration(compareTime).as('days');
 		$scope.dayRound = Math.floor(daysTime);
-
-		console.log("querySelector", document.querySelectorAll('.callTrack'));
+	
 		if ($scope.dayRound >= 10) {
-			angular.element( document.querySelectorAll('.callTrack')).addClass('green');
-		} else if ($scope.dayRound <= 9 && $scope.dayRound >= 4){
-			angular.element( document.querySelectorAll('.callTrack')).addClass('yellow');
-		} else {
-			angular.element( document.querySelectorAll('.callTrack')).addClass('red');
-		}	};
+				return "green";
+			} else if ($scope.dayRound <= 9 && $scope.dayRound >= 4){
+				return "yellow";
+			} else {
+				return "red";
+			}
+	};
 
+//convert any date for sorting
+	$scope.convertDates = function(somedate){
+		console.log("just date", somedate);
+		let covDate = somedate;
+		let formatDate = moment(covDate).format();
+		let figureAge = moment().diff(formatDate);
+		let ageConv = moment.duration(figureAge).as('years');
+		let roundYear = Math.floor(ageConv);
+		let addYears = moment(covDate).add(roundYear, 'year').format();
+		let nextDate = moment(addYears).add(1, 'year').format();
+		let dayDiff = moment(nextDate).diff(moment());
+		let daysAway = moment.duration(dayDiff).as('days');
+		$scope.dayRound = Math.floor(daysAway);
+		console.log("converDates $scope.dayRound", $scope.dayRound);
+		return $scope.dayRound;
+	};
+
+
+//converts birthday into days away then compares to add class
 	$scope.getBirthday = function(bday){
 		let contBdate = bday;
 		let formBirthdate = moment(contBdate).format();
@@ -37,16 +56,45 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let bDayDiff = moment(nextBday).diff(moment());
 		let bDaysAway = moment.duration(bDayDiff).as('days');
 		$scope.bDayRound = Math.floor(bDaysAway);
-		if (isNaN($scope.bDayRound)){
-			angular.element( document.querySelectorAll('.allBday')).addClass('hide');
-			} else if ($scope.bDayRound > 14) {
-			angular.element( document.querySelectorAll('.allBday')).addClass('hide');
-			} else if ($scope.bDayRound <= 14 && $scope.bDayRound >=7) {
-			angular.element( document.querySelectorAll('.allBday')).addClass('green').removeClass('hide');
-			} else {angular.element( document.querySelectorAll('.allBday')).addClass('red');
-		}
-	};
 
+			if ($scope.bDayRound > 14) {
+				return "dateHide";
+			} else if ($scope.bDayRound <= 14 && $scope.bDayRound >=7){
+				return "dateGreen";
+			} else if ($scope.bDayRound <= 6) {
+				return "dateRed";
+			} else if (isNaN($scope.annDayRound)) {
+				return "dateHide";
+			}
+
+	};
+	// $scope.notADate = function (date) {
+	// 	let x = date !== date;
+	// 	console.log("notADate", x, + " " + date);
+	// 	return date !== date; 
+	// };
+
+	// $scope.tooFarOut = function (date) {
+	// 	let x = date > 14;
+	// 	console.log("tooFarOut", x, + " " + date);
+	// 	return x;
+
+	// };
+	// console.log("$scope.tooFarOut", $scope.tooFarOut());
+
+	// $scope.twoWeeks = function(date) {
+	// 	let x = date <= 14 && date >=7;
+	// 	console.log("twoWeeks", x, + " " + date);
+	// 	return x;
+	// };
+
+	// $scope.daysAway = function(date) {
+	// 	let x = date < 7;
+	// 	console.log("daysAway", x, + " " + date);
+	// 	return x;
+	// };
+
+//converts anniversary into days away then compares to add class
 	$scope.getAnniversary = function(anniv){
 		let contAnniv = anniv;
 		let formAnnivdate = moment(contAnniv).format();
@@ -58,16 +106,18 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let annDiff = moment(nextAnn).diff(moment());
 		let annDaysAway = moment.duration(annDiff).as('days');
 		$scope.annDayRound = Math.floor(annDaysAway);
-		if (isNaN($scope.annDayRound)){
-			angular.element( document.querySelectorAll('.allAnniv')).addClass('hide');
-			} else if ($scope.annDayRound > 14) {
-			angular.element( document.querySelectorAll('.allAnniv')).addClass('hide');
-			} else if ($scope.annDayRound <= 14 && $scope.annDayRound >=7) {
-			angular.element( document.querySelectorAll('.allAnniv')).addClass('green').removeClass('hide');
-			} else {angular.element( document.querySelectorAll('.allAnniv')).addClass('red');
-		}
-	};
 
+			if ($scope.annDayRound > 14) {
+				return "dateHide";
+			} else if ($scope.annDayRound <= 14 && $scope.annDayRound >=7){
+				return "dateGreen";
+			} else if ($scope.annDayRound <= 6) {
+				return "dateRed";
+			} else if (isNaN($scope.annDayRound)) {
+				return "dateHide";
+			}
+	};
+//converts special date into days away then compares to add class
 	$scope.getSpecial = function(spec){
 		let contSpec = spec;
 		let formSpecdate = moment(contSpec).format();
@@ -79,16 +129,24 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let specDiff = moment(nextSpec).diff(moment());
 		let SpecDaysAway = moment.duration(specDiff).as('days');
 		$scope.specDayRound = Math.floor(SpecDaysAway);
-		if (isNaN($scope.specDayRound)){
-			angular.element( document.querySelectorAll('.allSpec')).addClass('hide');
-			} else if ($scope.specDayRound > 14) {
-			angular.element( document.querySelectorAll('.allSpec')).addClass('hide');
-			} else if ($scope.specDayRound <= 14 && $scope.specDayRound >=7) {
-			angular.element( document.querySelectorAll('.allSpec')).removeClass('hide').addClass('green');
-			} else {angular.element( document.querySelectorAll('.allSpec')).addClass('red');
-		}
+
+		if ($scope.specDayRound > 14) {
+				return "dateHide";
+			} else if ($scope.specDayRound <= 14 && $scope.specDayRound >=7){
+				return "dateGreen";
+			} else if ($scope.specDayRound <= 6) {
+				return "dateRed";
+			} else if (isNaN($scope.specDayRound)) {
+				return "dateHide";
+			}
 	};
 
+	$scope.convertDate = function(date){
+		console.log("convert Date Date", date);
+		let converted = moment(date).format('MMMM-DD');
+		console.log("converted date", converted);
+		// return converted;
+	};
 
 	const showAllContacts = function(){
 		contactFactory.getAllContacts(user)

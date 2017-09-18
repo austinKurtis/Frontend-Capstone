@@ -31,8 +31,23 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 		cardRem: "",
 		uid: user,
 		contactID: "",
-		contactType: "family"
+		contactType: "family",
+		holidays: ""
 	};
+
+// $scope.pushHolidays = function(religion){
+// 			if (religion == "Christian"){
+
+// 			} else if (religion == "Hindu"){
+
+// 			} else if (religion == "Jewish") {
+
+// 			} else if (religion == "Muslim") {
+
+// 			} else if (religion == "None") {
+
+// 			}
+// 		};
 
 	$scope.submitContact = function(){
 		console.log("submitCLicked");
