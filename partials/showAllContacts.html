@@ -1,96 +1,110 @@
 <div class="row">
 	<div class="col s12">
-	<center>
-		<h1>All Contacts</h1>
-	</center>
+    <center>
+    <h5>Upcoming Events</h5>
+    </center>
+    <div ng-repeat="people in contacts | limitTo:10">
+      <div class="col">
+        <div class="card-panel hoverable teal">
+          <span ng-init="convertDates(people.birthdate)" class="white-text">{{people.first_name}} {{people.last_name}}
+          </span>
+        </div>
+      </div>
+    </div>
 	</div>
 </div>
+<hr>
 <div class="row">
   <div class="col s12">
-    
+    <center>
     <h5>Call Reminder</h5>
+    </center>
     <div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true}">
       
-      <div class="col">
-        <center>
-        <a tooltipped class="waves-effect waves-light btn callTrack" data-ng-init="getLastCall(people.LastCallDate)" data-position="bottom" data-delay="50" data-tooltip="{{people.phone}}" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
-        </center>
-      </div>
-
-    </div>  
-    
+        <div class="col">
+          <center>
+          <a hoverable tooltipped class="waves-effect waves-light btn callTrack" ng-class="getLastCall(people.LastCallDate)" data-position="bottom" data-delay="50" data-tooltip="{{people.phone}}" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+          </center>
+        </div>
+    </div>
+  </div>
 </div>
-
+<hr>
 <div class="row">
-	<div class="col s12 m3">
+  <center>
+	<div class="col s4">
+    <center>
 		<h3>Family</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFamilyContact"><i class="material-icons">add</i></a>
-  </center>
-		<div ng-repeat="people in contacts | filter: { contactType: 'family'}">
-          <div class="card hoverable blue-grey darken-1">
+    </center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
+          <div class="card hoverable cyan darken-4">
             <div class="card-content white-text">
-              <span class="card-title"><a ng-href="#!/{{people.id}}/FamilyContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/FamilyContactDetails" class="white-text cardName">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.familyMem}}</p>
             </div>
             <div class="card-action">
-              <div class="row allBday">
-                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
-              </div>
-              <div class="row allAnniv">
-                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
-              </div>
-              <div class="row allSpec">
-                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
-              </div>
+              <center>
+                <div class="row" ng-class="getBirthday(people.birthdate)">
+                  <a>Birthday: {{people.birthdate}}</a>
+                </div>
+                <div class="row" ng-class="getAnniversary(people.anniversary)">
+                  <a>Anniversary: {{people.anniversary}}</a>
+                </div>
+                <div class="row" ng-class="getSpecial(people.specialDate)">
+                  <a>Special: {{people.specialDate}}</a>
+                </div>
+              </center>
             </div>
           </div>
         </div>		
 	</div>
-	<div class="col s12 m3">
-		<center>
-		<h3>Friends</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFriendContact"><i class="material-icons">add</i></a>
-		</center>
-		<div ng-repeat="people in contacts | filter: { contactType: 'friend'}">
-          <div class="card hoverable blue-grey darken-1">
+	<div class="col s4">
+    <center>
+		  <h3>Friends</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFriendContact"><i class="material-icons">add</i></a>
+      </center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'friend'} | orderBy: 'last_name'">
+          <div class="card hoverable green darken-4">
             <div class="card-content white-text">
-              <span class="card-title"><a ng-href="#!/{{people.id}}/FriendContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/FriendContactDetails" class="white-text cardName">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.friendMem}}</p>
             </div>
             <div class="card-action">
-              <div class="row allBday">
-                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
+              <div class="row" ng-class="getBirthday(people.birthdate)">
+                <a>Birthday: {{people.birthdate}}</a>
               </div>
-              <div class="row allAnniv">
-                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
+              <div class="row" ng-class="getAnniversary(people.anniversary)">
+                <a>Anniversary: {{people.anniversary}}</a>
               </div>
-              <div class="row allSpec">
-                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
+              <div class="row" ng-class="getSpecial(people.specialDate)">
+                <a>Special: {{people.specialDate}}</a>
               </div>
             </div>
           </div>
         </div>		
 	</div>
-	<div class="col s12 m3">
-		<center>
-		<h3>Professional</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newProfessionalContact"><i class="material-icons">add</i></a>
-		</center>
-		<div ng-repeat="people in contacts | filter: { contactType: 'professional'}">
+	 <div class="col s4">
+    <center>
+		  <h3>Professional</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newProfessionalContact"><i class="material-icons">add</i></a>
+    </center>
+		<div ng-repeat="people in contacts | filter: { contactType: 'professional'} | orderBy: 'last_name'">
           <div class="card hoverable blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title"><a ng-href="#!/{{people.id}}/ProfessionalContactDetails">{{people.first_name}} {{people.last_name}}</a></span>
+              <span class="card-title"><a ng-href="#!/{{people.id}}/ProfessionalContactDetails" class="white-text cardName">{{people.first_name}} {{people.last_name}}</a></span>
               <p>{{people.proMem}}</p>
             </div>
             <div class="card-action">
-              <div class="row allBday">
-                <a data-ng-init="getBirthday(people.birthdate)">Birthday</a>
+              <div class="row" ng-class="getBirthday(people.birthdate)">
+                <a>Birthday: {{people.birthdate}}</a>
               </div>
-              <div class="row allAnniv">
-                <a data-ng-init="getAnniversary(people.anniversary)">Anniversary</a>
+              <div class="row" ng-class="getAnniversary(people.anniversary)">
+                <a>Anniversary: {{people.anniversary}}</a>
               </div>
-              <div class="row allSpec">
-                <a data-ng-init="getSpecial(people.specialDate)">Special</a>
+              <div class="row" ng-class="getSpecial(people.specialDate)">
+                <a>Special: {{people.specialDate}}</a>
               </div>
             </div>
           </div>
         </div>		
-	</div>
+    </div>
+  </center>
 </div>
