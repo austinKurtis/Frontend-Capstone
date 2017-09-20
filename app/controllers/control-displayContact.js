@@ -2,10 +2,6 @@
 
 app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactory, $location){
 
-
-	// console.log("Birthdate", $scope.contact.birthdate);
-	console.log("Display Info itemID", $routeParams.itemId);
-
 	const showContact = function(){
 		contactFactory.getContactDetail($routeParams.itemId)
 		.then((data) => {

@@ -1,14 +1,12 @@
 "use strict";
 
-console.log("AllCon");
-
 app.controller('allContactsCtrl', function($scope, $window, $location, contactFactory, userFactory){
 	$scope.contacts = [];
 
 	let user = userFactory.getCurrentUser();
 	let NowPlus2Wks = moment().add(2, 'weeks').format();
 	let now = moment().format();
-	
+
 // Call date 2 weeks from now pushed to firebase for comparison
 	let contact = {
 		LastCallDate: NowPlus2Wks
@@ -27,6 +25,7 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 				return "red";
 			}
 	};
+	//Change the Contact Card Circle Background Color
 	$scope.changeCircle = function(date) {
 		if (date >= 14) {
 				return "conIconGreen";
@@ -53,30 +52,28 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		$scope.dayRound = Math.floor(daysAway);
 		return $scope.dayRound;
 	};
-	// converts family bdates for circles
-	$scope.contBday = function(date, contId){
-		let convert = $scope.convertDates(date);
-		let newClass = '.contBdayTxt--'+contId;
-		console.log("familyContID", newClass);
-		console.log("famConConvert", convert);
-		$(newClass).html(convert);
-	};
+	// // converts family bdates for circles
+	// $scope.contBday = function(date, contId){
+	// 	let convert = $scope.convertDates(date);
+	// 	let newClass = '.contBdayTxt--'+contId;
+	// 	$(newClass).html(convert);
+	// };
+	// //
+	// $scope.contAnniv = function(date, contId){
+	// 	let convert = $scope.convertDates(date);
+	// 	let newClass = '.contAnivTxt--'+contId;
+	// 	console.log("familyContID", newClass);
+	// 	console.log("famConConvert", convert);
+	// 	$(newClass).html(convert);
+	// };
 
-	$scope.contAnniv = function(date, contId){
-		let convert = $scope.convertDates(date);
-		let newClass = '.contAnivTxt--'+contId;
-		console.log("familyContID", newClass);
-		console.log("famConConvert", convert);
-		$(newClass).html(convert);
-	};
-
-	$scope.contSpec = function(date, contId){
-		let convert = $scope.convertDates(date);
-		let newClass = '.contSpecTxt--'+contId;
-		console.log("familyContID", newClass);
-		console.log("famConConvert", convert);
-		$(newClass).html(convert);
-	};
+	// $scope.contSpec = function(date, contId){
+	// 	let convert = $scope.convertDates(date);
+	// 	let newClass = '.contSpecTxt--'+contId;
+	// 	console.log("familyContID", newClass);
+	// 	console.log("famConConvert", convert);
+	// 	$(newClass).html(convert);
+	// };
 
 //converts birthday into days away then compares to add class
 	$scope.getBirthday = function(bday){
@@ -150,13 +147,14 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			}
 	};
 
-	$scope.convertDate = function(date){
-		console.log("convert Date Date", date);
-		let converted = moment(date).format('MMMM-DD');
-		console.log("converted date", converted);
-		// return converted;
-	};
+	// $scope.convertDate = function(date){
+	// 	console.log("convert Date Date", date);
+	// 	let converted = moment(date).format('MMMM-DD');
+	// 	console.log("converted date", converted);
+	// 	// return converted;
+	// };
 
+// gets all contacts from the factory
 	const showAllContacts = function(){
 		contactFactory.getAllContacts(user)
 		.then((contacts) => {
@@ -167,6 +165,7 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			$scope.contact = data;
 		});
 	};
+// deletes contacts from the factory within the database
 	$scope.deleteContact = function(id) {
 		contactFactory.deleteContact(id)
 		.then((irrelevant) => {
@@ -199,5 +198,19 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		};
 		contactFactory.editContact(id, updateSpecDays);
 	};
+//Compares Numbers for the minimum to change Home Contact Background Colors
+	$scope.minDaysAway = function(ann, bday, spec) {
+		let lowestNumber = Math.min(isNaN(ann) ? Infinity : ann, isNaN(bday) ? Infinity : bday, isNaN(spec) ? Infinity : spec);
+			console.log("lowestNumber", lowestNumber);
+			if (lowestNumber >= 14) {
+				return "conIconGreen";
+			} else if (lowestNumber <= 13 && lowestNumber >= 7){
+				return "conIconYellow";
+			} else if (lowestNumber <= 6 && lowestNumber >= 1){
+				return "conIconRed";
+			}
+	};
+
+
 	showAllContacts();
 });

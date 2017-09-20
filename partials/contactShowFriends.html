@@ -7,14 +7,14 @@
           <div class="row cardImg">
             <center>
             <i class="large material-icons cardAvatar">account_circle</i>
-            <h4><a ng-href="#!/{{people.id}}/FriendContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+            <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
             <h5>{{people.friendMem}}</h5>
             </center>
           </div>
           <hr>
           <div class="row cardRevise">
             <center>
-            <a ng-href="#!/{{people.id}}/editFriendContact"><i class=" editCon material-icons">edit</i>Edit</a>
+            <a ng-href="#!/{{people.id}}/edit{{people.contactType}}Contact"><i class=" editCon material-icons">edit</i>Edit</a>
             <a class="deleteCon" ng-click="deleteContact(people.id)"><i class="material-icons">delete_forever</i>Delete</a>
             </center>
           </div>

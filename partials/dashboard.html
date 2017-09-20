@@ -1,0 +1,37 @@
+<div style="background-color: #eceff1">
+<div class="navbar-fixed">
+	<div class="row callNav">
+		<div class="col">
+			<h6 class="white-text">Call </h6>
+			<h6 class="white-text">Reminder:</h6>
+		</div>
+		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true} | orderBy: 'LastCallDate' | limitTo:5">
+      
+	        <div class="col" style="padding: 0; margin-left: -5px;">
+	          <center>
+	          <a hoverable class="waves-effect waves-light btn callTrack" ng-class="getLastCall(people.LastCallDate)" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
+	          </center>
+	        </div>
+    	</div>
+	</div>
+</div>
+
+<div class="row contRow">
+	<div class="col s1 dashRows" style="width: 11.333333%;">
+			<center>
+			<i class="small material-icons">person</i>
+			<p class="colDescrpt">Upcoming Contact Events:</p>
+			</center>
+	</div>
+	<div ng-repeat="people in contacts | orderBy: ['birthDaysAway', 'annivDaysAway', 'specDaysAwya']| limitTo:8">
+		<div class="col dashRows" ng-class="minDaysAway(people.annivDaysAway, people.birthDaysAway, people.specDaysAwya)">
+			<center>
+			<h5>{{people.first_name}}</h5>
+			<h5>{{people.last_name}}</h5>
+			<a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails">view</a>
+			</center>
+		</div>
+	</div>
+</div>
+<hr>
+</div>
