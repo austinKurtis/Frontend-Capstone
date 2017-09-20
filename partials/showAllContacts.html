@@ -2,6 +2,7 @@
 	<div class="col s12">
     <center>
     <h5>Upcoming Events</h5>
+    <i class="material-icons left" ng-class="changeConColor()">person</i>
     </center>
     <div ng-repeat="people in contacts | limitTo:10">
       <div class="col">
@@ -36,7 +37,7 @@
     <center>
 		<h3>Family</h3>
     </center>
-		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
+		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'">
           <div class="card hoverable cyan darken-4">
             <div class="card-content white-text">
               <span class="card-title"><a ng-href="#!/{{people.id}}/FamilyContactDetails" class="white-text cardName">{{people.first_name}} {{people.last_name}}</a></span>

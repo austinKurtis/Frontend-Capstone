@@ -37,7 +37,7 @@ app.config(($routeProvider) =>{
 			resolve: {isAuth}
 		})
 	.when('/home', {
-			templateUrl: 'partials/showAllContacts.html',
+			templateUrl: 'partials/dashboard.html',
 			controller: 'allContactsCtrl',
 			resolve: {isAuth}
 		})
@@ -46,32 +46,32 @@ app.config(($routeProvider) =>{
 			controller: 'allContactsCtrl',
 			resolve: {isAuth}
 		})
-	.when('/:itemId/editFamilyContact', {
+	.when('/:itemId/editfamilyContact', {
 			templateUrl: 'partials/editFamContact.html',
 			controller: 'editFamContactCtrl',
 			resolve: {isAuth}
 		})
-	.when('/:itemId/editFriendContact', {
+	.when('/:itemId/editfriendContact', {
 			templateUrl: 'partials/editFrndContact.html',
 			controller: 'editFrndContactCtrl',
 			resolve: {isAuth}
 		})
-	.when('/:itemId/editProfessionalContact', {
+	.when('/:itemId/editprofessionalContact', {
 			templateUrl: 'partials/editProContact.html',
 			controller: 'editProContactCtrl',
 			resolve: {isAuth}
 		})
-	.when('/:itemId/FamilyContactDetails', {
+	.when('/:itemId/familyContactDetails', {
 			templateUrl: 'partials/showFamDetails.html',
 			controller: 'contactDetailCtrl',
 			resolve: {isAuth}
 	})
-	.when('/:itemId/FriendContactDetails', {
+	.when('/:itemId/friendContactDetails', {
 			templateUrl: 'partials/showFrndDetails.html',
 			controller: 'contactDetailCtrl',
 			resolve: {isAuth}
 	})
-	.when('/:itemId/ProfessionalContactDetails', {
+	.when('/:itemId/professionalContactDetails', {
 			templateUrl: 'partials/showProDetails.html',
 			controller: 'contactDetailCtrl',
 			resolve: {isAuth}

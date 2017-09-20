@@ -18,6 +18,11 @@
 	background-color: yellow;
 }
 
+.callNav {
+	background-color: #546e7a;
+	height: 50px;
+}
+
 .side-nav{
 	width: 200px;
 	top: 64px;
@@ -214,5 +219,21 @@ nav ul a {
 	box-shadow: -2px 3px 8px #808080;
 	margin-bottom: 0;
 }
+.callLine{
+	padding: 0;
+}
+.callTrack {
+	height: 42px;
+}
 
+.dashRows {
+	border-right: 1px solid #9e9e9e;
+}
 
+.contRow{
+	height: 100px;
+}
+
+.colDescrpt{
+margin: 0;
+}

@@ -8,7 +8,6 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 	let user = userFactory.getCurrentUser();
 
 	let NowPlus2Wks = moment().add(2, 'weeks').format();
-	console.log('NowPlus2Wks', NowPlus2Wks);
 
 	$scope.contact = {
 		first_name: "",
@@ -34,24 +33,6 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 		contactType: "family",
 		holidays: ""
 	};
-
-// $scope.pushHolidays = function(religion){
-// 			if (religion == "Christian"){
-
-// 			} else if (religion == "Hindu"){
-
-// 			} else if (religion == "Jewish") {
-
-// 			} else if (religion == "Muslim") {
-
-// 			} else if (religion == "None") {
-
-// 			}
-// 		};
-
-	// $scope.changeAddColor = function(){
-	// 	return 'blue-text darken-1' ;
-	// };
 	
 	$scope.submitContact = function(){
 		console.log("submitCLicked");
