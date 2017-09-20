@@ -42,7 +42,7 @@ app.config(($routeProvider) =>{
 			resolve: {isAuth}
 		})
 	.when('/AllContacts', {
-			templateUrl: 'partials/showAllContacts.html',
+			templateUrl: 'partials/contactShowAll.html',
 			controller: 'allContactsCtrl',
 			resolve: {isAuth}
 		})
@@ -76,10 +76,25 @@ app.config(($routeProvider) =>{
 			controller: 'contactDetailCtrl',
 			resolve: {isAuth}
 	})
-	.when('/TestDateCompare', {
-			templateUrl: 'partials/testDateCompare.html',
-			controller: 'testDateCompare',
-			resolve: {isAuth}
+	.when('/contactsShowAll', {
+		templateUrl: 'partials/contactShowAll.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
+	})
+	.when('/contactsFamily', {
+		templateUrl: 'partials/contactShowFamily.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
+	})
+	.when('/contactsFriends', {
+		templateUrl: 'partials/contactShowFriends.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
+	})
+	.when('/contactsProfessional', {
+		templateUrl: 'partials/contactShowProf.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
 	})
 	.otherwise('/');
 });

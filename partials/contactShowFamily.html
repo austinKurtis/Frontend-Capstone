@@ -1,0 +1,84 @@
+<div style="background-color: #eceff1">
+  <div class="row"></div>
+  <div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
+    <div class="row">
+      <div class="fullCont">
+        <div class="col m4 leftCol bottomShadow">
+          <div class="row cardImg">
+            <center>
+            <i class="large material-icons cardAvatar">account_circle</i>
+            <h4><a ng-href="#!/{{people.id}}/FamilyContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+            <h5>{{people.familyMem}}</h5>
+            </center>
+          </div>
+          <hr>
+          <div class="row cardRevise">
+            <center>
+            <a ng-href="#!/{{people.id}}/editFamilyContact"><i class=" editCon material-icons">edit</i>Edit</a>
+            <a class="deleteCon" ng-click="deleteContact(people.id)"><i class="material-icons">delete_forever</i>Delete</a>
+            </center>
+          </div>
+        </div>
+        <div class="col m6 rightCol bottomShadow" style="padding-left: 0px;padding-right: 0px;">
+          <div class="row bottomShadow">
+            <div class="col m5 contUpcom" style="width: 450px;">
+              <div class="row">Up-Coming Dates:</div>
+              <div class="row">
+                <center>
+                <div class="col m4">
+                  <div class="contCircleGreen" ng-class="changeCircle(people.birthDaysAway)">
+                    <h4 class="cirNum" ng-init="updateBdayDays(people.birthdate, people.id)">{{people.birthDaysAway}}</h4>
+                    <p class="cirText">Days</p>
+                    <p class="cirText">Away</p>
+                    <p>Birthday</p>
+                  </div>
+                </div>
+                <div class="col m4">
+                  <div class="contCircleGreen" ng-class="changeCircle(people.annivDaysAway)">
+                    <h4 class="cirNum" ng-init="updateAnivDays(people.anniversary, people.id)">{{people.annivDaysAway}}</h4>
+                    <p class="cirText">Days</p>
+                    <p class="cirText">Away</p>
+                    <p>Anniversary</p>
+                  </div>
+                </div>
+                <div class="col m4">
+                  <div class="contCircleGreen" ng-class="changeCircle(people.specDaysAwya)">
+                    <h4 class="cirNum" ng-init="updateSpecDays(people.specialDate, people.id)">{{people.specDaysAwya}}</h4>
+                    <p class="cirText">Days</p>
+                    <p class="cirText">Away</p>
+                    <p>Special</p>
+                  </div>
+                </div>
+                </center>
+              </div>
+            </div>
+          <div class="col m1 right contButtons">
+            <div class="row" style="margin-top: 15px;"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush">local_phone</i></a></div>
+            <div class="row"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush">email</i></a></div>
+            <div class="row" style="margin-bottom: 5px;"><a href="https://www.google.com/maps/place/{{people.street_1}}+{{people.street_2}}+{{people.city}}+{{people.state}}+{{people.zip}}" target="_blank"><i class="Small material-icons sidePush">home</i></a></div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col m4 dateButtons contBdayLinkBg">
+              <center>
+              <img class="conIcon" src="images/icon-gift-m.png" alt="gift icon"> Birthday
+              </center>
+            </div>
+            <div class="col m4 dateButtons contAnnivLinkBg">
+              <center>
+              <img class="conIcon" src="images/icon-anniv-m.png" alt="Anniversary icon">
+              Anniversary
+              </center>
+            </div>
+            <div class="col m4 dateButtons contSpecLinkBg">
+              <center>
+              <img class="conIcon" src="images/icon-special-m.png" alt="Special icon">
+              Special
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

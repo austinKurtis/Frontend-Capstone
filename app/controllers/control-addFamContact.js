@@ -49,6 +49,10 @@ app.controller('contactFamCtrl', function($scope, $window, userFactory, contactF
 // 			}
 // 		};
 
+	// $scope.changeAddColor = function(){
+	// 	return 'blue-text darken-1' ;
+	// };
+	
 	$scope.submitContact = function(){
 		console.log("submitCLicked");
 		contactFactory.addContact($scope.contact)
