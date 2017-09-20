@@ -6,8 +6,8 @@
         <div class="col m4 leftCol bottomShadow">
           <div class="row cardImg">
             <center>
-            <i class="large material-icons cardAvatar">account_circle</i>
-            <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+            <i class="large material-icons cardAvatar orange-text">account_circle</i>
+            <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class=" orange-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
             <h5>{{people.proMem}}</h5>
             </center>
           </div>
@@ -19,11 +19,11 @@
             </center>
           </div>
         </div>
-        <div class="col m6 rightCol bottomShadow" style="padding-left: 0px;padding-right: 0px;">
+        <div class="col m6 rightCol bottomShadow">
           <div class="row bottomShadow">
             <div class="col m5 contUpcom" style="width: 450px;">
-              <div class="row">Up-Coming Dates:</div>
-              <div class="row">
+              <div class="row contUpTxt">Up-Coming Dates:</div>
+              <div class="row center-align">
                 <center>
                 <div class="col m4">
                   <div class="contCircleGreen" ng-class="changeCircle(people.birthDaysAway)">
@@ -53,27 +53,28 @@
               </div>
             </div>
           <div class="col m1 right contButtons">
-            <div class="row" style="margin-top: 15px;"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush">local_phone</i></a></div>
-            <div class="row"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush">email</i></a></div>
-            <div class="row" style="margin-bottom: 5px;"><a href="https://www.google.com/maps/place/{{people.street_1}}+{{people.street_2}}+{{people.city}}+{{people.state}}+{{people.zip}}" target="_blank"><i class="Small material-icons sidePush">home</i></a></div>
+            <div class="row center-align sideContBtns"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush">local_phone</i></a></div>
+            <div class="row center-align sideContBtns"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush">email</i></a></div>
+            <div class="row center-align sideContBtns"><a href="https://www.google.com/maps/place/{{people.street_1}}+{{people.street_2}}+{{people.city}}+{{people.state}}+{{people.zip}}" target="_blank"><i class="Small material-icons sidePush">home</i></a></div>
           </div>
           </div>
           <div class="row">
-            <div class="col m4 dateButtons contBdayLinkBg">
+            <div class="col m4 dateButtons contBdayLinkBg center-align">
               <center>
-              <img class="conIcon" src="images/icon-gift-m.png" alt="gift icon"> Birthday
+              <img class="conIcon" src="images/icon-gift-m.png" alt="gift icon">
+              <p class=" marginClear">Birthday</p>
               </center>
             </div>
-            <div class="col m4 dateButtons contAnnivLinkBg">
+            <div class="col m4 dateButtons contAnnivLinkBg center-align">
               <center>
               <img class="conIcon" src="images/icon-anniv-m.png" alt="Anniversary icon">
-              Anniversary
+              <p class=" marginClear">Anniversary</p>
               </center>
             </div>
-            <div class="col m4 dateButtons contSpecLinkBg">
+            <div class="col m4 dateButtons contSpecLinkBg center-align">
               <center>
               <img class="conIcon" src="images/icon-special-m.png" alt="Special icon">
-              Special
+              <p class=" marginClear">Special</p>
               </center>
             </div>
           </div>

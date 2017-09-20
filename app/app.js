@@ -96,6 +96,21 @@ app.config(($routeProvider) =>{
 		controller: 'allContactsCtrl',
 		resolve: {isAuth}
 	})
+	.when('/phoneBook', {
+		templateUrl: 'partials/phoneBook.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
+	})
+	.when('/phoneReminder', {
+		templateUrl: 'partials/phoneReminder.html',
+		controller: 'allContactsCtrl',
+		resolve: {isAuth}
+	})
+	.when('/gift', {
+		templateUrl: 'partials/birthdayGiftHim.html',
+		controller: 'shopCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 

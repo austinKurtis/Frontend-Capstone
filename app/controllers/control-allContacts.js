@@ -16,15 +16,23 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let compareTime = moment(call).diff(moment());
 		let daysTime = moment.duration(compareTime).as('days');
 		$scope.dayRound = Math.floor(daysTime);
-	
+		console.log("$scope.dayRound", $scope.dayRound);
 		if ($scope.dayRound >= 10) {
-				return "green";
+				return "conIconGreen";
 			} else if ($scope.dayRound <= 9 && $scope.dayRound >= 4){
-				return "yellow";
+				return "conIconYellow";
 			} else {
-				return "red";
+				return "conIconRed";
 			}
 	};
+	$scope.daysAgo = function(date) {
+		let compareTime = moment(date).diff(moment());
+		console.log("compareTime", compareTime);
+		$('phoneRemInfo').each(function(){
+			$(this).html("<p>" + compareTime + "</p>");
+		});
+	};
+
 	//Change the Contact Card Circle Background Color
 	$scope.changeCircle = function(date) {
 		if (date >= 14) {
@@ -211,6 +219,9 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			}
 	};
 
+	$scope.lowestSort = function(people) {
+		return Math.min(isNaN(people.annivDaysAway) ? Infinity : people.annivDaysAway, isNaN(people.birthDaysAway) ? Infinity : people.birthDaysAway, isNaN(people.specDaysAwya) ? Infinity : people.specDaysAwya);
+	};
 
 	showAllContacts();
 });
