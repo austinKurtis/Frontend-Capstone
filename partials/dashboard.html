@@ -2,12 +2,12 @@
 <div class="navbar-fixed">
 	<div class="row callNav">
 		<div class="col">
-			<h6 class="white-text">Call </h6>
-			<h6 class="white-text">Reminder:</h6>
+			<h6 class="white-text callRem">Call </h6>
+			<h6 class="white-text callRem">Reminder:</h6>
 		</div>
 		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true} | orderBy: 'LastCallDate' | limitTo:5">
       
-	        <div class="col" style="padding: 0; margin-left: -5px;">
+	        <div class="col">
 	          <center>
 	          <a hoverable class="waves-effect waves-light btn callTrack" ng-class="getLastCall(people.LastCallDate)" href="tel:{{people.phone}}" ng-click="updateCall(people.id)"><i class="material-icons left">phone</i>{{people.familyMem}}</a>
 	          </center>
@@ -17,20 +17,24 @@
 </div>
 
 <div class="row contRow">
-	<div class="col s1 dashRows" style="width: 11.333333%;">
-			<center>
-			<i class="small material-icons">person</i>
-			<p class="colDescrpt">Upcoming Contact Events:</p>
-			</center>
+	<div class="row">
+			<!-- <center> dashRowHead-->
+			<p class="upComeLabel"><i class="small material-icons">person</i>Upcoming Contact Events: </p>
+			<!-- <p class="colDescrpt">Upcoming Contact Events:</p> -->
+			<!-- </center> -->
 	</div>
-	<div ng-repeat="people in contacts | orderBy: ['birthDaysAway', 'annivDaysAway', 'specDaysAwya']| limitTo:8">
+	<div ng-repeat="people in contacts | orderBy:lowestSort | limitTo:10">
 		<div class="col dashRows" ng-class="minDaysAway(people.annivDaysAway, people.birthDaysAway, people.specDaysAwya)">
 			<center>
-			<h5>{{people.first_name}}</h5>
-			<h5>{{people.last_name}}</h5>
-			<a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails">view</a>
+				<div class="eventNames">
+				<h6 class="white-text">{{people.first_name}}</h6>
+				<h6 class="white-text">{{people.last_name}}</h6>
+				</div>
+				<div class="eventView">
+					<a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails">view</a>
+				</div>
 			</center>
-		</div>
+			</div>
 	</div>
 </div>
 <hr>

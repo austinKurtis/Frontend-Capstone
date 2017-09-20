@@ -4,7 +4,7 @@
 	    <div class="nav-wrapper navBack">
 	      <div class="brand-logo navLogo">
 
-	      	<h5 class="logo"><a ng-href="#!/home"> Keep In Touch</a></h5>
+	      	<h5 class="logo"><a ng-href="#!/home" ng-click="noneActive()"> Keep In Touch</a></h5>
 
 	      </div>
 	      <ul class="right hide-on-med-and-down">
@@ -17,90 +17,52 @@
 	      </ul>
 	    </div>
 	<ul id="slide-out" class="side-nav navBack fixed" ng-show="isLoggedIn">
-	  <ul class="collapsible" data-collapsible="accordion">
-    	<li>
-      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">add</i>Add Contact</div>
-      		<div class="collapsible-body">
-      			<a ng-href="#!/newFamilyContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Family</a>
-      			<a ng-href="#!/newFriendContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Friends</a>
-      			<a ng-href="#!/newProfessionalContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Professional</a>
-      		</div>
-    	</li>
-    	<li><div class="divider"></div></li>
-    	<li>
-      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">person</i>Contact List</div>
-	      	<div class="collapsible-body">
-	      		<a ng-href="#!/contactsShowAll" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Show All</a>
+		<ul class="collapsible" data-collapsible="accordion">
+	    	<li>
+	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">add</i>Add Contact</div>
+	      		<div class="collapsible-body">
+	      			<a ng-href="#!/newFamilyContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Family</a>
+	      			<a ng-href="#!/newFriendContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Friends</a>
+	      			<a ng-href="#!/newProfessionalContact" ng-click="addActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Professional</a>
+	      		</div>
+	    	</li>
+	    	<li><div class="divider"></div></li>
+	    	<li>
+	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">person</i>Contact List</div>
+		      	<div class="collapsible-body">
+		      		<a ng-href="#!/contactsShowAll" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Show All</a>
 
-	      		<a ng-href="#!/contactsFamily" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Family</a>
+		      		<a ng-href="#!/contactsFamily" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Family</a>
 
-	    		<a ng-href="#!/contactsFriends" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Friends</a>
+		    		<a ng-href="#!/contactsFriends" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Friends</a>
 
-	    		<a ng-href="#!/contactsProfessional" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Professional</a>
-	      	</div>
-    	</li>
-    	<li><div class="divider"></div></li>
-    	<li>
-      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">event_note</i>Event List</div>
-	      	<div class="collapsible-body">
-	      		<a ng-href="#!/newFamilyContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Birthdays</a>
+		    		<a ng-href="#!/contactsProfessional" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Professional</a>
+		      	</div>
+	    	</li>
+	    	<li><div class="divider"></div></li>
+	    	<li>
+	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">event_note</i>Event List</div>
+		      	<div class="collapsible-body">
+		      		<a ng-href="#!/newFamilyContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Birthdays</a>
 
-	    		<a ng-href="#!/newFriendContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Anniversary</a>
+		    		<a ng-href="#!/newFriendContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Anniversary</a>
 
-	    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Special</a>
+		    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Special</a>
 
-	    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Holidays</a>
-	      	</div>
-    	</li>
-    	<li><div class="divider"></div></li>
-    	<li>
-      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">phone_in_talk</i>Call List</div>
-	      	<div class="collapsible-body">
-	      		<a ng-href="#!/newFamilyContact" ng-click="phoneActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Reminder</a>
+		    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Holidays</a>
+		      	</div>
+	    	</li>
+	    	<li><div class="divider"></div></li>
+	    	<li>
+	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">phone_in_talk</i>Call List</div>
+		      	<div class="collapsible-body">
+		      		<a ng-href="#!/phoneReminder" ng-click="phoneActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Reminder</a>
 
-	      		<a ng-href="#!/newFamilyContact" ng-click="phoneActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Phone Book</a>
-	      	</div>
-    	</li>
-  </ul>
+		      		<a ng-href="#!/phoneBook" ng-click="phoneActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Phone Book</a>
+		      	</div>
+	    	</li>
+  		</ul>
         
   	</ul>
- <!--        <ul id="slide-out" class="side-nav collapsible navBack fixed" data-collapsible="accordion" ng-show="isLoggedIn">
-        	<ul>
-    		<li class="navBack">
-    			<div class="collapsible-header grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add</i>Add Contact</div>
-
-    			<a ng-href="#!/newFamilyContact" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Family</a>
-
-    			<a ng-href="#!/newFriendContact" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Friends</a>
-
-    			<a ng-href="#!/newProfessionalContact" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">add_box</i>Professional</a>
-    		</li>
-	   		
-	    <li><div class="divider"></div></li>
-	    	<li class="navBack">
-	    		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">person</i>Contact List</a></div>
-	    		<a ng-href="#!/AllContacts" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Show All</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Family</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Friends</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Professional</a>
-	    	</li>
-
-	    <li><div class="divider"></div></li>
-	    <li class="navBack">
-				<div class="collapsible-header grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">event_note</i>Event List</a></div>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Birthdays</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Anniversary</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Special</a>
-	    		<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Holidays</a>
-	    </li>
-	    <li><div class="divider"></div></li>
-	    <li class="navBack">
-	    	<div class="collapsible-header grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone_in_talk</i>Call List</a></div>
-	    	<a ng-href="" class="collapsible-body grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Reminder</a>
-
-	    <li><div class="divider"></div></li>
-
-  	</ul> -->
-
   </nav>
 </div>

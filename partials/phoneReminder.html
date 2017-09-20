@@ -1,0 +1,40 @@
+<div style="background-color: #eceff1">
+  <!-- Family Memeber Phone -->
+  <div class="row">
+    <h5 class="phoneInfo">Family Phone Contacts:</h5>
+  </div>
+    <div class="col m9">
+      
+      <div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true} | orderBy: 'LastCallDate'">
+        <div class="row">
+          <div class="fullCont">
+            <div class="col m1 remColorTag" ng-class="getLastCall(people.LastCallDate)"></div>
+            <div class="col m4 leftCol bottomShadow">
+              <div class="row cardImg">
+                <center>
+                <i class="large material-icons cardAvatar">account_circle</i>
+                <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+                <h5>{{people.familyMem}}</h5>
+                </center>
+              </div>
+            </div>
+            <div class="col m6 rightCol bottomShadow">
+                <div class="col m5">
+                  <div class="row phoneRemTop">
+                    <h5 class="phoneRemCat">Telephone:</h5>
+                    <p class="phoneRemInfo">{{people.phone}}</p>
+                  </div>
+                  <div class="row phoneRemBot">
+                    <h5 class="phoneRemCat">You have not called in:</h5>
+                    <p class="phoneRemInfo" ng-init="daysAgo(people.LastCallDate)"></p>
+                  </div>
+                </div>
+            <div class="col m2 right rightButtonColumn contButtons">
+                <div class="row center-align rightPhoneRem"><a href="tel:{{people.phone}}"><i class="medium material-icons sidePush">local_phone</i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
