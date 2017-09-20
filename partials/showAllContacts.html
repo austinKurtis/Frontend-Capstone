@@ -34,7 +34,7 @@
   <center>
 	<div class="col s4">
     <center>
-		<h3>Family</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFamilyContact"><i class="material-icons">add</i></a>
+		<h3>Family</h3>
     </center>
 		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
           <div class="card hoverable cyan darken-4">
@@ -60,7 +60,7 @@
 	</div>
 	<div class="col s4">
     <center>
-		  <h3>Friends</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newFriendContact"><i class="material-icons">add</i></a>
+		  <h3>Friends</h3>
       </center>
 		<div ng-repeat="people in contacts | filter: { contactType: 'friend'} | orderBy: 'last_name'">
           <div class="card hoverable green darken-4">
@@ -84,7 +84,7 @@
 	</div>
 	 <div class="col s4">
     <center>
-		  <h3>Professional</h3><a class="btn-floating btn-small waves-effect waves-light red" ng-href="#!/newProfessionalContact"><i class="material-icons">add</i></a>
+		  <h3>Professional</h3>
     </center>
 		<div ng-repeat="people in contacts | filter: { contactType: 'professional'} | orderBy: 'last_name'">
           <div class="card hoverable blue-grey darken-1">

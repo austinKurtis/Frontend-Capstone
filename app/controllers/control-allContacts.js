@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("AllCon");
+
 app.controller('allContactsCtrl', function($scope, $window, $location, contactFactory, userFactory){
 	$scope.contacts = [];
 
@@ -25,10 +27,20 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 				return "red";
 			}
 	};
+	$scope.changeCircle = function(date) {
+		if (date >= 14) {
+				return "conIconGreen";
+			} else if (date <= 13 && date >= 7){
+				return "conIconYellow";
+			} else if (date <= 6 && date >= 1){
+				return "conIconRed";
+			} else {
+				return "hide";
+			}
+	};
 
 //convert any date for sorting
 	$scope.convertDates = function(somedate){
-		console.log("just date", somedate);
 		let covDate = somedate;
 		let formatDate = moment(covDate).format();
 		let figureAge = moment().diff(formatDate);
@@ -39,10 +51,32 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let dayDiff = moment(nextDate).diff(moment());
 		let daysAway = moment.duration(dayDiff).as('days');
 		$scope.dayRound = Math.floor(daysAway);
-		console.log("converDates $scope.dayRound", $scope.dayRound);
 		return $scope.dayRound;
 	};
+	// converts family bdates for circles
+	$scope.contBday = function(date, contId){
+		let convert = $scope.convertDates(date);
+		let newClass = '.contBdayTxt--'+contId;
+		console.log("familyContID", newClass);
+		console.log("famConConvert", convert);
+		$(newClass).html(convert);
+	};
 
+	$scope.contAnniv = function(date, contId){
+		let convert = $scope.convertDates(date);
+		let newClass = '.contAnivTxt--'+contId;
+		console.log("familyContID", newClass);
+		console.log("famConConvert", convert);
+		$(newClass).html(convert);
+	};
+
+	$scope.contSpec = function(date, contId){
+		let convert = $scope.convertDates(date);
+		let newClass = '.contSpecTxt--'+contId;
+		console.log("familyContID", newClass);
+		console.log("famConConvert", convert);
+		$(newClass).html(convert);
+	};
 
 //converts birthday into days away then compares to add class
 	$scope.getBirthday = function(bday){
@@ -68,31 +102,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			}
 
 	};
-	// $scope.notADate = function (date) {
-	// 	let x = date !== date;
-	// 	console.log("notADate", x, + " " + date);
-	// 	return date !== date; 
-	// };
-
-	// $scope.tooFarOut = function (date) {
-	// 	let x = date > 14;
-	// 	console.log("tooFarOut", x, + " " + date);
-	// 	return x;
-
-	// };
-	// console.log("$scope.tooFarOut", $scope.tooFarOut());
-
-	// $scope.twoWeeks = function(date) {
-	// 	let x = date <= 14 && date >=7;
-	// 	console.log("twoWeeks", x, + " " + date);
-	// 	return x;
-	// };
-
-	// $scope.daysAway = function(date) {
-	// 	let x = date < 7;
-	// 	console.log("daysAway", x, + " " + date);
-	// 	return x;
-	// };
 
 //converts anniversary into days away then compares to add class
 	$scope.getAnniversary = function(anniv){
@@ -168,6 +177,27 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 	$scope.updateCall = function(id) {
 		contactFactory.editContact(id, contact);
 	};
-
+//All of these update days away to Firebase
+	$scope.updateBdayDays = function(date, id) {
+		let convert = $scope.convertDates(date);
+		let updateBdays = {
+		birthDaysAway: convert
+		};
+		contactFactory.editContact(id, updateBdays);
+	};
+	$scope.updateAnivDays = function(date, id) {
+		let convert = $scope.convertDates(date);
+		let updateAnvDays = {
+		annivDaysAway: convert
+		};
+		contactFactory.editContact(id, updateAnvDays);
+	};
+	$scope.updateSpecDays = function(date, id) {
+		let convert = $scope.convertDates(date);
+		let updateSpecDays = {
+		specDaysAwya: convert
+		};
+		contactFactory.editContact(id, updateSpecDays);
+	};
 	showAllContacts();
 });
