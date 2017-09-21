@@ -18,12 +18,12 @@ app.controller('navCtrl', function($scope, $window, userFactory){
 	$('.phoneNav').removeClass('cyan-text text-accent-3');
 	};
 	
-	$scope.eventActive = function(){
-	$('.eventNav').addClass('cyan-text text-accent-3');
-	$('.personNav').removeClass('cyan-text text-accent-3');
-	$('.addNav').removeClass('cyan-text text-accent-3');
-	$('.phoneNav').removeClass('cyan-text text-accent-3');
-	};
+	// $scope.eventActive = function(){
+	// $('.eventNav').addClass('cyan-text text-accent-3');
+	// $('.personNav').removeClass('cyan-text text-accent-3');
+	// $('.addNav').removeClass('cyan-text text-accent-3');
+	// $('.phoneNav').removeClass('cyan-text text-accent-3');
+	// };
 
 	$scope.phoneActive = function(){
 	$('.phoneNav').addClass('cyan-text text-accent-3');

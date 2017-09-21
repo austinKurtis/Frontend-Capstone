@@ -10,7 +10,7 @@
 	      <ul class="right hide-on-med-and-down">
 	        <li ng-show="isLoggedIn"><i class="material-icons left addNav">add</i></li>
 	        <li ng-show="isLoggedIn"><i class="material-icons left personNav" ng-class="changeConColor()">person</i></li>
-	        <li ng-show="isLoggedIn"><i class="material-icons left eventNav" ng-class="changeEvenColor()">event_note</i></li>
+	        <!-- <li ng-show="isLoggedIn"><i class="material-icons left eventNav" ng-class="changeEvenColor()">event_note</i></li> -->
 	        <li ng-show="isLoggedIn"><i class="material-icons left phoneNav" ng-class="changeCallColor()">phone</i></li>
 
 	        <li><a ng-href="#!" ng-show="isLoggedIn" ng-click="logout()" >Logout</a></li>
@@ -39,7 +39,7 @@
 		    		<a ng-href="#!/contactsProfessional" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Professional</a>
 		      	</div>
 	    	</li>
-	    	<li><div class="divider"></div></li>
+	    	<!-- <li><div class="divider"></div></li>
 	    	<li>
 	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">event_note</i>Event List</div>
 		      	<div class="collapsible-body">
@@ -51,7 +51,7 @@
 
 		    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Holidays</a>
 		      	</div>
-	    	</li>
+	    	</li> -->
 	    	<li><div class="divider"></div></li>
 	    	<li>
 	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">phone_in_talk</i>Call List</div>
@@ -61,6 +61,7 @@
 		      		<a ng-href="#!/phoneBook" ng-click="phoneActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">phone</i>Phone Book</a>
 		      	</div>
 	    	</li>
+	    	<li><div class="divider"></div></li>
   		</ul>
         
   	</ul>
