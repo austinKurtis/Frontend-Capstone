@@ -183,6 +183,7 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 // Call reminder click patches LastCallDate to Firebase
 	$scope.updateCall = function(id) {
 		contactFactory.editContact(id, contact);
+		$window.location.reload();
 	};
 //All of these update days away to Firebase
 	$scope.updateBdayDays = function(date, id) {

@@ -3,19 +3,19 @@
   <div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
     <div class="row">
       <div class="fullCont">
-        <div class="col m4 leftCol bottomShadow">
+        <div class="col m4 leftCol bottomShadow phoneSideLeft">
           <div class="row cardImg">
             <center>
             <i class="large material-icons cardAvatar light-blue-text text-lighten-3">account_circle</i>
-            <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class=" light-blue-text text-lighten-3 cardName">{{people.first_name}} {{people.last_name}}</a></h4>
-            <h5>{{people.familyMem}}</h5>
+            <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="light-blue-text text-lighten-3 cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+            <h5 class="light-blue-text text-lighten-3">{{people.familyMem}}</h5>
             </center>
           </div>
           <hr>
           <div class="row cardRevise">
             <center>
-            <a ng-href="#!/{{people.id}}/edit{{people.contactType}}Contact"><i class=" editCon material-icons">edit</i>Edit</a>
-            <a class="deleteCon" ng-click="deleteContact(people.id)"><i class="material-icons">delete_forever</i>Delete</a>
+            <a ng-href="#!/{{people.id}}/edit{{people.contactType}}Contact" class="yellow-text"><i class=" editCon material-icons yellow-text">edit</i>Edit</a>
+            <a class="deleteCon red-text text-darken-3" ng-click="deleteContact(people.id)"><i class="material-icons red-text text-darken-3">delete_forever</i>Delete</a>
             </center>
           </div>
         </div>
@@ -52,10 +52,10 @@
                 </center>
               </div>
             </div>
-          <div class="col m1 right contButtons">
-            <div class="row center-align sideContBtns"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush">local_phone</i></a></div>
-            <div class="row center-align sideContBtns"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush">email</i></a></div>
-            <div class="row center-align sideContBtns"><a href="https://www.google.com/maps/place/{{people.street_1}}+{{people.street_2}}+{{people.city}}+{{people.state}}+{{people.zip}}" target="_blank"><i class="Small material-icons sidePush">home</i></a></div>
+          <div class="col m1 right contButtons phoneSideLeft">
+            <div class="row center-align sideContBtns"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush light-green-text text-accent-3">local_phone</i></a></div>
+            <div class="row center-align sideContBtns"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush light-blue-text">email</i></a></div>
+            <div class="row center-align sideContBtns"><a href="https://www.google.com/maps/place/{{people.street_1}}+{{people.street_2}}+{{people.city}}+{{people.state}}+{{people.zip}}" target="_blank"><i class="Small material-icons sidePush yellow-text text-accent-3">home</i></a></div>
           </div>
           </div>
           <div class="row">
