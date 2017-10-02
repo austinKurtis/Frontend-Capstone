@@ -1,5 +1,12 @@
+<div class="row">
+  <div class="col s12">
+    <center>
+      <h3 class="phoneSideLeft newContTop light-blue-text text-lighten-3">Family Contacts</h3>
+    </center>
+  </div>
+</div>
 <div style="background-color: #eceff1">
-  <div class="row"></div>
+  <!-- Angular Sort Function by Family and  Last Name -->
   <div ng-repeat="people in contacts | filter: { contactType: 'family'} | orderBy: 'last_name'" >
     <div class="row">
       <div class="fullCont">
@@ -12,6 +19,7 @@
             </center>
           </div>
           <hr>
+          <!-- Edit/DeletButtons -->
           <div class="row cardRevise">
             <center>
             <a ng-href="#!/{{people.id}}/edit{{people.contactType}}Contact" class="yellow-text"><i class=" editCon material-icons yellow-text">edit</i>Edit</a>
@@ -21,6 +29,7 @@
         </div>
         <div class="col m6 rightCol bottomShadow">
           <div class="row bottomShadow">
+<!-- Middle Row Contact Dates -->
             <div class="col m5 contUpcom" style="width: 450px;">
               <div class="row contUpTxt">Up-Coming Dates:</div>
               <div class="row center-align">
@@ -52,6 +61,7 @@
                 </center>
               </div>
             </div>
+<!-- Right Column of Contact Icons -->
           <div class="col m1 right contButtons phoneSideLeft">
             <div class="row center-align sideContBtns"><a href="tel:{{people.phone}}"><i class="Small material-icons sidePush light-green-text text-accent-3">local_phone</i></a></div>
             <div class="row center-align sideContBtns"><a href="mailto:{{contact.email}}"><i class="Small material-icons sidePush light-blue-text">email</i></a></div>

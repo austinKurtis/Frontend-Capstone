@@ -1,3 +1,4 @@
+/****** Over All Styles ******/
 .row .col{
     padding: 0 !important;
     margin: 0 !important;
@@ -9,25 +10,17 @@
 	margin: 0;
 }
 
-.cardName {
-	font-weight: 700;
+.frame{
+	padding-left: 200px;
 }
 
-.dateHide{ 
-	display: none;
+h6 {
+    font-size: 1rem;
+    line-height: 90%;
+    margin: 0.3rem 0 .2rem 0;
 }
 
-.dateGreen {
-	background-color: green;
-}
-
-.dateRed {
-	background-color: red;
-}
-
-.dateYellow {
-	background-color: yellow;
-}
+/****** Nav Styles ******/
 
 .callNav {
 	background-color: #546e7a;
@@ -37,9 +30,6 @@
 .side-nav{
 	width: 200px;
 	top: 64px;
-}
-.frame{
-	padding-left: 200px;
 }
 
 .navBack, .collapsible-body{
@@ -104,14 +94,29 @@ nav ul a {
     display: none; 
 }
 
-.deleteCon{
-	margin: 0 10px;
-	cursor: pointer;
+/****** Date Colors ******/
+.dateHide{ 
+	display: none;
 }
-.editCon{
-	margin: 0 10px;
+
+.dateGreen {
+	background-color: green;
 }
-/* Card Setup*/
+
+.dateRed {
+	background-color: red;
+}
+
+.dateYellow {
+	background-color: yellow;
+}
+
+/****** Card Styles ******/
+
+.cardName {
+	font-weight: 700;
+}
+
 .fullCont{
 	margin-left:10px;
 }
@@ -259,6 +264,15 @@ nav ul a {
 margin: 0;
 }
 
+/****** Button Styles ******/
+.deleteCon{
+	margin: 0 10px;
+	cursor: pointer;
+}
+.editCon{
+	margin: 0 10px;
+}
+
 /* Phone Book Styles*/
 .famColor{ 
 	height: 300px;
@@ -293,7 +307,7 @@ margin: 0;
 	margin: 5px 0 5px 25px;
 }
 .phoneMidRow {
-	width: 417px;
+	width: 434px;
 	background: #bdbdbd;
 	padding: 5px 0;
 	margin-bottom: 0;
@@ -308,7 +322,7 @@ margin: 0;
 	padding: 0;
 }
 .phoneRemBot{
-	width: 417px;
+	width: 434px;
 	height: 138px;
 	margin: 0;
 	padding: 0;
@@ -321,7 +335,7 @@ margin: 0;
 .phoneRemInfo{
 	margin: 5px 0 5px 25px;
 }
-/*Dashboard*/
+/***** Dashboard *****/
 .callRem{
 	width: 100px;
 	padding-left: 15px;
@@ -365,4 +379,24 @@ margin: 0;
 }
 .newContContainer{
 	margin-left: 20px;
+}
+
+/***** Contact Details *****/
+.detailsGreenDate {
+	background-color: #67c3ef;
+}
+
+.detailsYellowDate {
+	background: #fabb3c;
+}
+
+.detailsRedDate {
+	background: #ff5455;
+}
+.detailsDateCol {
+	height: 50px;
+    width: 220px;
+    justify-content: center;
+    border-right: 2px solid #263238;
+    border-left: 2px solid #263238;
 }

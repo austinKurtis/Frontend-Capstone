@@ -1,11 +1,9 @@
-  	<div class="navbar-fixed">
-  <nav ng-controller="navCtrl">
-
+<div class="navbar-fixed">
+	<nav ng-controller="navCtrl">
+		<!-- Top Navbar -->
 	    <div class="nav-wrapper navBack">
 	      <div class="brand-logo navLogo">
-
 	      	<h5 class="logo"><a ng-href="#!/home" ng-click="noneActive()"> Keep In Touch</a></h5>
-
 	      </div>
 	      <ul class="right hide-on-med-and-down">
 	        <li ng-show="isLoggedIn"><i class="material-icons left addNav">add</i></li>
@@ -16,6 +14,7 @@
 	        <li><a ng-href="#!" ng-show="isLoggedIn" ng-click="logout()" >Logout</a></li>
 	      </ul>
 	    </div>
+	<!-- Side Navbar -->
 	<ul id="slide-out" class="side-nav navBack fixed" ng-show="isLoggedIn">
 		<ul class="collapsible" data-collapsible="accordion">
 	    	<li>
@@ -39,19 +38,6 @@
 		    		<a ng-href="#!/contactsProfessional" ng-click="contActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">contacts</i>Professional</a>
 		      	</div>
 	    	</li>
-	    	<!-- <li><div class="divider"></div></li>
-	    	<li>
-	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">event_note</i>Event List</div>
-		      	<div class="collapsible-body">
-		      		<a ng-href="#!/newFamilyContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Birthdays</a>
-
-		    		<a ng-href="#!/newFriendContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Anniversary</a>
-
-		    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Special</a>
-
-		    		<a ng-href="#!/newProfessionalContact" ng-click="eventActive()" class="grey-text text-darken-1"><i class="material-icons grey-text text-darken-1">assignment</i>Holidays</a>
-		      	</div>
-	    	</li> -->
 	    	<li><div class="divider"></div></li>
 	    	<li>
 	      		<div class="collapsible-header grey-text text-darken-1"><i class="material-icons">phone_in_talk</i>Call List</div>

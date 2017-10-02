@@ -1,7 +1,8 @@
 "use strict";
-
+//Contact Details Controller
 app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactory, $location){
 
+//Gets the contact info and date data
 	const showContact = function(){
 		contactFactory.getContactDetail($routeParams.itemId)
 		.then((data) => {
@@ -61,8 +62,21 @@ app.controller("contactDetailCtrl", function($scope, $routeParams, contactFactor
 		});
 	};
 
-	 
+//Change Date Color
+$scope.changeDateBg = function(date) {
+		if (date >= 14) {
+				return "detailsGreenDate";
+			} else if (date <= 13 && date >= 7){
+				return "detailsYellowDate";
+			} else if (date <= 6 && date >= 0){
+				return "detailsRedDate";
+			} else {
+				return "hide";
+			}
+	};
 
+	 
+//Delete Contact Button Function
 	$scope.deleteContact = function(id) {
 		contactFactory.deleteContact(id)
 		.then((irrelevant) => {
