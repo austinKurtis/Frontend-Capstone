@@ -1,7 +1,9 @@
 "use strict";
+
+//Angular App Module
 const app = angular.module("KitApp", ['ngRoute', 'ui.materialize']);
 
-
+//Checks to see if the user is authorized
 let isAuth = (userFactory) => new Promise ((resolve, reject) => {
 	userFactory.isAuthenticated()
 	.then((userExists) => {
@@ -13,6 +15,7 @@ let isAuth = (userFactory) => new Promise ((resolve, reject) => {
 	});
 });
 
+//Full Site Route Provider
 app.config(($routeProvider) =>{
 	$routeProvider
 
@@ -113,7 +116,7 @@ app.config(($routeProvider) =>{
 	})
 	.otherwise('/');
 });
-
+//Firebase Credits and Location
 app.run(($location, FBCreds) => {
 	let creds = FBCreds;
 	let authConfig = {

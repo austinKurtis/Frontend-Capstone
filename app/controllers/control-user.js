@@ -1,4 +1,5 @@
 "use strict";
+//User Controller for Authorization via gmail/google
 app.controller("userCtrl", function($scope, $window, userFactory, $location) {
 
 //This creates the authentication for the webpage. It pulls in the authentication data from firebase and checks if the user is logged in or out. 
@@ -12,7 +13,7 @@ let logout = () => {
           console.log("error on logout");
         });
   };
-
+//Login with Google
 $scope.loginGoogle = () => {
 
   userFactory.authWithProvider()

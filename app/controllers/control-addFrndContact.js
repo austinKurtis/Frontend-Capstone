@@ -1,12 +1,13 @@
 "use strict";
-
+// Angular JS to add new friend contacts
 app.controller('contactFrndCtrl', function($scope, $window, userFactory, contactFactory, $location){
-
+	// Title and Submit template
 	$scope.friendTitle = "New Friend Contact";
 	$scope.submitConButton = "Submit Contact";
-
+	// user Auth variable
 	let user = userFactory.getCurrentUser();
 
+	// contact Array Data
 	$scope.contact = {
 		first_name: "",
 		last_name: "",
@@ -31,6 +32,7 @@ app.controller('contactFrndCtrl', function($scope, $window, userFactory, contact
 		contactType: "friend"
 	};
 
+	// Submit Contact
 	$scope.submitContact = function(){
 		console.log("submitCLicked");
 		contactFactory.addContact($scope.contact)

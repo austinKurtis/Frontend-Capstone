@@ -1,10 +1,12 @@
 "use strict";
-
+//all Contacts Controller
 app.controller('allContactsCtrl', function($scope, $window, $location, contactFactory, userFactory){
 	$scope.contacts = [];
-
+	// Get User From Factory
 	let user = userFactory.getCurrentUser();
+	// gets todays date and adds two weeks to the contact database
 	let NowPlus2Wks = moment().add(2, 'weeks').format();
+	//todays date
 	let now = moment().format();
 
 // Call date 2 weeks from now pushed to firebase for comparison
@@ -25,6 +27,15 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 				return "conIconRed";
 			}
 	};
+// Days since last call
+	$scope.callDaysAway = function(call){
+		let compareTime = moment(call).diff(moment());
+		let daysTime = moment.duration(compareTime).as('days');
+		$scope.dayRound = Math.floor(daysTime);
+		return $scope.dayRound;
+	};
+
+	//Checkes to see how many days ago something happened
 	$scope.daysAgo = function(date) {
 		let compareTime = moment(date).diff(moment());
 		console.log("compareTime", compareTime);
@@ -60,28 +71,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		$scope.dayRound = Math.floor(daysAway);
 		return $scope.dayRound;
 	};
-	// // converts family bdates for circles
-	// $scope.contBday = function(date, contId){
-	// 	let convert = $scope.convertDates(date);
-	// 	let newClass = '.contBdayTxt--'+contId;
-	// 	$(newClass).html(convert);
-	// };
-	// //
-	// $scope.contAnniv = function(date, contId){
-	// 	let convert = $scope.convertDates(date);
-	// 	let newClass = '.contAnivTxt--'+contId;
-	// 	console.log("familyContID", newClass);
-	// 	console.log("famConConvert", convert);
-	// 	$(newClass).html(convert);
-	// };
-
-	// $scope.contSpec = function(date, contId){
-	// 	let convert = $scope.convertDates(date);
-	// 	let newClass = '.contSpecTxt--'+contId;
-	// 	console.log("familyContID", newClass);
-	// 	console.log("famConConvert", convert);
-	// 	$(newClass).html(convert);
-	// };
 
 //converts birthday into days away then compares to add class
 	$scope.getBirthday = function(bday){
@@ -155,13 +144,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 			}
 	};
 
-	// $scope.convertDate = function(date){
-	// 	console.log("convert Date Date", date);
-	// 	let converted = moment(date).format('MMMM-DD');
-	// 	console.log("converted date", converted);
-	// 	// return converted;
-	// };
-
 // gets all contacts from the factory
 	const showAllContacts = function(){
 		contactFactory.getAllContacts(user)
@@ -183,7 +165,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 // Call reminder click patches LastCallDate to Firebase
 	$scope.updateCall = function(id) {
 		contactFactory.editContact(id, contact);
-		$window.location.reload();
 	};
 //All of these update days away to Firebase
 	$scope.updateBdayDays = function(date, id) {
@@ -215,11 +196,11 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 				return "conIconGreen";
 			} else if (lowestNumber <= 13 && lowestNumber >= 7){
 				return "conIconYellow";
-			} else if (lowestNumber <= 6 && lowestNumber >= 1){
+			} else if (lowestNumber <= 6 && lowestNumber >= 0){
 				return "conIconRed";
 			}
 	};
-
+//Custom filter for All Contacts to the lowest amount of days away from now and eliminates not a number
 	$scope.lowestSort = function(people) {
 		return Math.min(isNaN(people.annivDaysAway) ? Infinity : people.annivDaysAway, isNaN(people.birthDaysAway) ? Infinity : people.birthDaysAway, isNaN(people.specDaysAwya) ? Infinity : people.specDaysAwya);
 	};

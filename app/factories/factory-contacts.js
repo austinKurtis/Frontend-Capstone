@@ -1,7 +1,8 @@
 "use strict";
-
+//Factory to get contacts from Firebase
 app.factory("contactFactory", function($q, $http, FBCreds){
 
+//function to get all of the contacts within firebase based on the user ID
 const getAllContacts = function(user) {
 	let contacts = [];
 	return $q((resolve, reject) => {
@@ -20,6 +21,7 @@ const getAllContacts = function(user) {
 		});
 	};
 
+//Add new contact Factory Function
 	const addContact = function(obj){
 		let newObj = JSON.stringify(obj);
 		return $http.post(`${FBCreds.databaseURL}/contacts.json`, newObj)
@@ -30,7 +32,7 @@ const getAllContacts = function(user) {
 			let errorMessage = error.message;
 		});
 	};
-
+//Delete Contact Factory Function
 	const deleteContact = function(id){
 		return $q((resolve, reject) => {
 			$http.delete(`${FBCreds.databaseURL}/contacts/${id}.json`)
@@ -43,6 +45,7 @@ const getAllContacts = function(user) {
 			});
 		};
 
+//Contact Detail Factory Function via RouteParams
     const getContactDetail = function(itemId){
         return $q((resolve, reject) =>{
             $http.get(`${FBCreds.databaseURL}/contacts/${itemId}.json`)
@@ -55,6 +58,7 @@ const getAllContacts = function(user) {
         });
     };
 
+//Edit Contacts Factory Function via routeParams ID
     const editContact = function(id, obj) {
         return $q((resolve, reject) => {
             let newObj = JSON.stringify(obj);

@@ -1,9 +1,10 @@
 "use strict";
-
+//Navigation Controller
 app.controller('navCtrl', function($scope, $window, userFactory){
-
+	//Checks if isAuth True/False
 	$scope.isLoggedIn = false;
 
+//Top right icon color changer
 	$scope.addActive = function(){
 	$('.addNav').addClass('cyan-text text-accent-3');
 	$('.personNav').removeClass('cyan-text text-accent-3');
@@ -17,13 +18,6 @@ app.controller('navCtrl', function($scope, $window, userFactory){
 	$('.eventNav').removeClass('cyan-text text-accent-3');
 	$('.phoneNav').removeClass('cyan-text text-accent-3');
 	};
-	
-	// $scope.eventActive = function(){
-	// $('.eventNav').addClass('cyan-text text-accent-3');
-	// $('.personNav').removeClass('cyan-text text-accent-3');
-	// $('.addNav').removeClass('cyan-text text-accent-3');
-	// $('.phoneNav').removeClass('cyan-text text-accent-3');
-	// };
 
 	$scope.phoneActive = function(){
 	$('.phoneNav').addClass('cyan-text text-accent-3');
@@ -39,6 +33,7 @@ app.controller('navCtrl', function($scope, $window, userFactory){
 	$('.phoneNav').removeClass('cyan-text text-accent-3');
 	};
 
+//logout button
 	$scope.logout = () => {
 		userFactory.logOut();
 	};

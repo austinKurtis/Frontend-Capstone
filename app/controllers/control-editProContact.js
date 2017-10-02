@@ -1,11 +1,15 @@
 "use strict";
+// Angular JS to add new family contacts
 app.controller("editProContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
 
+	// Title and Submit template
 	$scope.professionalTitle = "Edit Professional Contact";
 	$scope.submitConButton = "Submit Edit";
 
+	// user Auth variable
 	let user = userFactory.getCurrentUser();
 
+	// contact Array Data
 	$scope.contact = {
 		first_name: "",
 		last_name: "",
@@ -30,6 +34,7 @@ app.controller("editProContactCtrl", function($scope, contactFactory, $routePara
 		contactType: "professional"
 	};
 
+//gets the data of contact from RouteParams
    const showEditProContact = function(){
     	contactFactory.getContactDetail($routeParams.itemId)
     	.then((data) => {
@@ -39,6 +44,7 @@ app.controller("editProContactCtrl", function($scope, contactFactory, $routePara
     	});
     };
 
+//Submit changes button
 	$scope.submitContact = function(){
 		contactFactory.editContact($routeParams.itemId, $scope.contact)
 		.then((data) =>{

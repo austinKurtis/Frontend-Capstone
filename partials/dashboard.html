@@ -1,10 +1,12 @@
 <div style="background-color: #eceff1">
+<!-- Call Reminder Row -->
 <div class="navbar-fixed">
 	<div class="row callNav">
 		<div class="col">
 			<h6 class="white-text callRem">Call </h6>
 			<h6 class="white-text callRem">Reminder:</h6>
 		</div>
+<!-- List of Family members to call sorted by Call Reminder True and Last Call date. Limited to 5 contacts -->
 		<div ng-repeat="people in contacts | filter: { contactType: 'family'} | filter: { callRem: true} | orderBy: 'LastCallDate' | limitTo:5">
       
 	        <div class="col">
@@ -15,12 +17,13 @@
     	</div>
 	</div>
 </div>
-
+<!-- Upcoming Events Row -->
 <div class="row contRow">
 	<div class="row upCallRow">
 		<i class="small material-icons">person</i>		
 		<p class="upComeLabel">Upcoming Contact Events: </p>
 	</div>
+<!-- List of all contacts by event date closes to today. Limited to 10 -->
 	<div ng-repeat="people in contacts | orderBy:lowestSort | limitTo:10">
 		<div class="col dashRows" ng-class="minDaysAway(people.annivDaysAway, people.birthDaysAway, people.specDaysAwya)">
 			<center>
@@ -38,6 +41,7 @@
 <div class="row"></div>
 <hr>
 <div class="row"></div>
+<!-- Keep In Touch Graphic -->
 <div class="row">
 	<center>
 	<img src="images/keepInTouch.jpg" alt="landing page keep in touch graphic" width="600px">

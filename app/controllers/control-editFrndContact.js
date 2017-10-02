@@ -1,11 +1,16 @@
 "use strict";
+
+// Angular JS to add new friend contacts
 app.controller("editFrndContactCtrl", function($scope, contactFactory, $routeParams, $location, userFactory){
 
+	// Title and Submit template
 	$scope.friendTitle = "Edit Friend Contact";
 	$scope.submitConButton = "Submit Edit";
 
+	// user Auth variable
 	let user = userFactory.getCurrentUser();
 
+	// contact Array Data
 	$scope.contact = {
 		first_name: "",
 		last_name: "",
@@ -30,6 +35,7 @@ app.controller("editFrndContactCtrl", function($scope, contactFactory, $routePar
 		contactType: "friend"
 	};
 
+//gets the data of contact from RouteParams
    const showEditFrndContact = function(){
     	contactFactory.getContactDetail($routeParams.itemId)
     	.then((data) => {
@@ -39,6 +45,7 @@ app.controller("editFrndContactCtrl", function($scope, contactFactory, $routePar
     	});
     };
 
+//Submit changes button
 	$scope.submitContact = function(){
 		contactFactory.editContact($routeParams.itemId, $scope.contact)
 		.then((data) =>{
