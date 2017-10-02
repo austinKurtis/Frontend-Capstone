@@ -12,8 +12,8 @@
             <div class="col m4 leftCol bottomShadow">
               <div class="row cardImg">
                 <center>
-                <i class="large material-icons cardAvatar">account_circle</i>
-                <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="black-text cardName">{{people.first_name}} {{people.last_name}}</a></h4>
+                <i class="large material-icons cardAvatar light-blue-text text-lighten-3">account_circle</i>
+                <h4><a ng-href="#!/{{people.id}}/{{people.contactType}}ContactDetails" class="cardName light-blue-text text-lighten-3">{{people.first_name}} {{people.last_name}}</a></h4>
                 <h5>{{people.familyMem}}</h5>
                 </center>
               </div>
@@ -29,8 +29,8 @@
                     <p class="phoneRemInfo" ng-init="daysAgo(people.LastCallDate)"></p>
                   </div>
                 </div>
-            <div class="col m2 right rightButtonColumn contButtons">
-                <div class="row center-align rightPhoneRem"><a href="tel:{{people.phone}}"><i class="medium material-icons sidePush">local_phone</i></a></div>
+            <div class="col m2 right rightButtonColumn contButtons phoneBack">
+                <div class="row center-align rightPhoneRem"><a href="tel:{{people.phone}}"><i class="medium material-icons sidePush black-text">local_phone</i></a></div>
               </div>
             </div>
           </div>

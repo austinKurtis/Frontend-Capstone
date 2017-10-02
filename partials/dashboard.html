@@ -17,11 +17,9 @@
 </div>
 
 <div class="row contRow">
-	<div class="row">
-			<!-- <center> dashRowHead-->
-			<p class="upComeLabel"><i class="small material-icons">person</i>Upcoming Contact Events: </p>
-			<!-- <p class="colDescrpt">Upcoming Contact Events:</p> -->
-			<!-- </center> -->
+	<div class="row upCallRow">
+		<i class="small material-icons">person</i>		
+		<p class="upComeLabel">Upcoming Contact Events: </p>
 	</div>
 	<div ng-repeat="people in contacts | orderBy:lowestSort | limitTo:10">
 		<div class="col dashRows" ng-class="minDaysAway(people.annivDaysAway, people.birthDaysAway, people.specDaysAwya)">

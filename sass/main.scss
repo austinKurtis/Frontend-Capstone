@@ -113,8 +113,7 @@ nav ul a {
 }
 /* Card Setup*/
 .fullCont{
-	/*margin-top: 20px;*/
-	margin-left:20px;
+	margin-left:10px;
 }
 
 .leftCol{
@@ -332,6 +331,7 @@ margin: 0;
 }
 .upComeLabel{
 	margin: 0 16px;
+	display: inline-block;
 }
 
 .eventNames{
@@ -345,4 +345,24 @@ margin: 0;
     height: 34px;
     background: rgba(255,255,255,.7);
     color: white;
+}
+
+.phoneBack {
+	background-color: #76ff03;
+}
+
+.phoneSideLeft {
+	background-color: #263238;
+}
+.upCallRow{
+	margin-left: 20px;
+}
+.newContTop{
+	margin: 0;
+    border-top: 5px solid;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.newContContainer{
+	margin-left: 20px;
 }
