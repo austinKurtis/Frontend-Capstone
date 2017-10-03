@@ -24,15 +24,21 @@
         <tr>
           <td><h4 for="contact">Important Dates:</h4></td>
           <td>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.birthDaysAway)">
-                <strong>Birthdate:</strong> {{contact.birthdate}}
-            </div>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.annivDaysAway)">
-                <strong>Anniversary:</strong> {{contact.anniversary}}
-            </div>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.specDaysAwya)">
-                <strong>Special Date:</strong> {{contact.specialDate}}
-            </div>
+            <a href="https://www.target.com/s?searchTerm=gifts+{{contact.familyMem}}" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.birthDaysAway)">
+                  <strong>Birthdate:</strong> {{contact.birthdate}}
+              </div>
+            </a>
+            <a href="https://www.ediblearrangements.com/Anniversary" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.annivDaysAway)">
+                  <strong>Anniversary:</strong> {{contact.anniversary}}
+              </div>
+            </a>
+            <a href="http://www.cardstore.com/search/birthday%20{{contact.familyMem}}?search_term=birthday%2520{{contact.familyMem}}" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.specDaysAwya)">
+                  <strong>Special Date:</strong> {{contact.specialDate}}
+              </div>
+          </a>
           </td>
         </tr>
       </tbody>

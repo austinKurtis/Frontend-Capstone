@@ -28,8 +28,8 @@
                     <p class="phoneRemInfo">{{people.phone}}</p>
                   </div>
                   <div class="row phoneRemBot">
-                    <h5 class="phoneRemCat">You have not called in:</h5>
-                    <p class="phoneRemInfo" ng-init="daysAgo(people.LastCallDate)"></p>
+                    <h5 class="phoneRemCat">You have not called your {{people.familyMem}} in:</h5>
+                    <h4 ng-init="updatePhoneDays(people.LastCallDate, people.id)">{{people.callDaysAway}} Day(s)</h4>
                   </div>
                 </div>
             <div class="col m2 right rightButtonColumn contButtons phoneBack">
