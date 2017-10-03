@@ -7,30 +7,30 @@ app.controller('navCtrl', function($scope, $window, userFactory){
 //Top right icon color changer
 	$scope.addActive = function(){
 	$('.addNav').addClass('cyan-text text-accent-3');
-	$('.personNav').removeClass('cyan-text text-accent-3');
+	$('.personNav').removeClass('yellow-text text-accent-3');
 	$('.eventNav').removeClass('cyan-text text-accent-3');
-	$('.phoneNav').removeClass('cyan-text text-accent-3');
+	$('.phoneNav').removeClass('light-green-text text-accent-3');
 	};
 
 	$scope.contActive = function(){
-	$('.personNav').addClass('cyan-text text-accent-3');
+	$('.personNav').addClass('yellow-text text-accent-3');
 	$('.addNav').removeClass('cyan-text text-accent-3');
 	$('.eventNav').removeClass('cyan-text text-accent-3');
-	$('.phoneNav').removeClass('cyan-text text-accent-3');
+	$('.phoneNav').removeClass('light-green-text text-accent-3');
 	};
 
 	$scope.phoneActive = function(){
-	$('.phoneNav').addClass('cyan-text text-accent-3');
-	$('.personNav').removeClass('cyan-text text-accent-3');
+	$('.phoneNav').addClass('light-green-text text-accent-3');
+	$('.personNav').removeClass('yellow-text text-accent-3');
 	$('.eventNav').removeClass('cyan-text text-accent-3');
 	$('.addNav').removeClass('cyan-text text-accent-3');
 	};
 
 	$scope.noneActive = function(){
 	$('.addNav').removeClass('cyan-text text-accent-3');
-	$('.personNav').removeClass('cyan-text text-accent-3');
+	$('.personNav').removeClass('yellow-text text-accent-3');
 	$('.eventNav').removeClass('cyan-text text-accent-3');
-	$('.phoneNav').removeClass('cyan-text text-accent-3');
+	$('.phoneNav').removeClass('light-green-text text-accent-3');
 	};
 
 //logout button
