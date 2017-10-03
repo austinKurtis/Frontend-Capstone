@@ -18,7 +18,6 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let compareTime = moment(call).diff(moment());
 		let daysTime = moment.duration(compareTime).as('days');
 		$scope.dayRound = Math.floor(daysTime);
-		console.log("$scope.dayRound", $scope.dayRound);
 		if ($scope.dayRound >= 10) {
 				return "conIconGreen";
 			} else if ($scope.dayRound <= 9 && $scope.dayRound >= 4){
@@ -29,7 +28,7 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 	};
 // Days since last call
 	$scope.callDaysAway = function(call){
-		let compareTime = moment(call).diff(moment());
+		let compareTime = moment().diff(moment(call));
 		let daysTime = moment.duration(compareTime).as('days');
 		$scope.dayRound = Math.floor(daysTime);
 		return $scope.dayRound;
@@ -69,6 +68,15 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		let dayDiff = moment(nextDate).diff(moment());
 		let daysAway = moment.duration(dayDiff).as('days');
 		$scope.dayRound = Math.floor(daysAway);
+		return $scope.dayRound;
+	};
+//Converts for phone dates
+	$scope.covertCallDate = function(date){
+		let date2Covert = date;
+		let diffInDays = moment().diff(date2Covert);
+		let getDays = moment.duration(diffInDays).as('days');
+		$scope.dayRound = Math.floor(getDays + 15);
+		console.log("covertCallDate", $scope.dayRound);
 		return $scope.dayRound;
 	};
 
@@ -187,6 +195,13 @@ app.controller('allContactsCtrl', function($scope, $window, $location, contactFa
 		specDaysAwya: convert
 		};
 		contactFactory.editContact(id, updateSpecDays);
+	};
+	$scope.updatePhoneDays = function(date, id) {
+		let convert = $scope.covertCallDate(date);
+		let updateCallDays = {
+		callDaysAway: convert
+		};
+		contactFactory.editContact(id, updateCallDays);
 	};
 //Compares Numbers for the minimum to change Home Contact Background Colors
 	$scope.minDaysAway = function(ann, bday, spec) {

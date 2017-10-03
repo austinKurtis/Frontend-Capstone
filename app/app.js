@@ -109,11 +109,6 @@ app.config(($routeProvider) =>{
 		controller: 'allContactsCtrl',
 		resolve: {isAuth}
 	})
-	.when('/gift', {
-		templateUrl: 'partials/birthdayGiftHim.html',
-		controller: 'shopCtrl',
-		resolve: {isAuth}
-	})
 	.otherwise('/');
 });
 //Firebase Credits and Location

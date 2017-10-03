@@ -24,15 +24,21 @@
         <tr>
           <td><h4 for="contact">Important Dates:</h4></td>
           <td>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.birthDaysAway)">
-              <strong>Birthdate:</strong> {{contact.birthdate}}
-            </div>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.annivDaysAway)">
-              <strong>Anniversary:</strong> {{contact.anniversary}}
-            </div>
-            <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.specDaysAwya)">
-              <strong>Special Date:</strong> {{contact.specialDate}}
-            </div>
+            <a href="https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=gift+for+{{people.proMem}}" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.birthDaysAway)">
+                <strong>Birthdate:</strong> {{contact.birthdate}}
+              </div>
+            </a>
+            <a href="http://shop.hallmarkbusinessconnections.com/anniversary-cards/" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.annivDaysAway)">
+                <strong>Anniversary:</strong> {{contact.anniversary}}
+              </div>
+            </a>
+            <a href="https://www.ediblearrangements.com/fruit-arrangements?SearchText={{people.proMem}}" target="_blank">
+              <div class="col detailsDateCol valign-wrapper center-align" ng-class="changeDateBg(contact.specDaysAwya)">
+                <strong>Special Date:</strong> {{contact.specialDate}}
+              </div>
+            </a>
           </td>
         </tr>
       </tbody>
